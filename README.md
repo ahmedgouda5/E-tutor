@@ -90,11 +90,8 @@ To implement this design:
 - Suggest design updates via Figma comments.
 - Report issues on GitHub (placeholder: e-tutor-community/issues).
 
-## License
-
-MIT License - Feel free to use and adapt for educational or non-commercial projects.
 
 ---
 
 *Last Updated: November 19, 2025*  
-*Designed with ❤️ for lifelong learners.*
+*Designed with godeawy*
