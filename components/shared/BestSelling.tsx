@@ -1,15 +1,17 @@
 import { bestSellingCourses } from '@/lib/data'
 import Image from 'next/image'
 import Heading from './heading'
+import Link from 'next/link'
 
 const BestSelling = () => {
     return (
         <main>
             < Heading heading="Best Selling Courses" />
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
-                {bestSellingCourses.map((course, i) => (
-                    <div key={i} className="border rounded-xl overflow-hidden shadow-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                {bestSellingCourses.slice(0, 4).map((course, i) => (
+                  <Link key={i} href={`/ELearn/courses/${course.id}`}>
+                      <div key={i} className="border rounded-xl overflow-hidden shadow-sm h-[330px]">
                         <Image src={course.image} alt={course.title} priority className="w-full h-40 object-cover" width={400} height={160} />
 
                         <div className="p-4">
@@ -26,6 +28,7 @@ const BestSelling = () => {
                             </div>
                         </div>
                     </div>
+                  </Link>
                 ))}
             </div>
         </main>

@@ -7,7 +7,7 @@ const FeatureCourses = () => {
         <div className="max-w-7xl mx-auto px-4 py-16 bg-white">
 
             <div className="flex flex-col md:flex-row justify-between items-start mb-12 gap-4">
-                <div className="flex justify-between items-center flex-wrap  w-full">
+                <div className="flex  text-center justify-between  items-center flex-wrap  w-full">
                     <h2 className="text-4xl font-bold text-gray-900 mb-3">
                         Our feature courses
                     </h2>
@@ -19,11 +19,11 @@ const FeatureCourses = () => {
             </div>
 
             {/* Course Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
                 {coursesFeatured.map((course) => (
                     <div
                         key={course.id}
-                        className="flex flex-col sm:flex-row gap-4 p-6 bg-white rounded-lg border border-gray-200
+                        className="flex flex-col sm:flex-row gap-4 p-4  bg-white rounded-lg border border-gray-200
                                    hover:shadow-lg transition-all duration-300"
                     >
                         {/* Image */}

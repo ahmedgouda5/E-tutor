@@ -10,7 +10,7 @@ const TopInstructor = () => {
         <main className="my-7 border shadow-lg p-2 rounded-xl ">
             <Heading heading="Top Instructor In the Month" />
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
                 {TopInstructorData.map((instructor) => (
                     <div
                         key={instructor.id}

@@ -26,44 +26,8 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="bg-gray-900 py-16">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-2">
-                Start learning with 671k
-              </h2>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                students around the world.
-              </h2>
-              <div className="flex flex-wrap gap-4">
-                <button className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-lg transition-colors">
-                  Join The Family
-                </button>
-                <button className="bg-transparent hover:bg-gray-700 text-white font-semibold px-6 py-3 rounded-lg border border-gray-600 transition-colors">
-                  Browse All Courses
-                </button>
-              </div>
-            </div>
-
-            <div className="flex gap-12">
-              <div className="text-center">
-                <div className="text-4xl font-bold mb-2">6.3k</div>
-                <div className="text-gray-400 text-sm">Online courses</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold mb-2">26k</div>
-                <div className="text-gray-400 text-sm">Certified Instructor</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold mb-2">99.9%</div>
-                <div className="text-gray-400 text-sm">Success Rate</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <footer className="bg-[#1D2026] text-white">
+      
 
       <div className="py-12 border-t border-gray-800">
         <div className="max-w-7xl mx-auto px-6">

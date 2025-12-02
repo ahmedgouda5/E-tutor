@@ -14,7 +14,7 @@ const TrustedCompanies = () => {
   ];
 
   return (
-    <section className="my-16 max-w-7xl mx-auto px-4">
+    <section className="my-16 max-w-7xl mx-auto ">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-center">
 
         {/* LEFT SIDE TEXT */}

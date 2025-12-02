@@ -1,5 +1,4 @@
-
-import React from 'react'
+import React from "react";
 import dynamic from "next/dynamic";
 
 const Navabr = dynamic(() => import("@/components/shared/Navabr"), {
@@ -7,25 +6,21 @@ const Navabr = dynamic(() => import("@/components/shared/Navabr"), {
 });
 
 const Footer = dynamic(() => import("@/components/shared/Footer"), {
- 
   loading: () => <div>Loading Footer...</div>,
 });
 
-
 const AppProvider = ({ children }: { children: React.ReactNode }) => {
-    return (
-        <div>
-            <nav>
-                <Navabr />
-            </nav>
-            <main className='min-h-screen px-4 '>
-                {children}
-            </main>
-            <footer>
-                <Footer />
-            </footer>
-        </div>
-    )
-}
+  return (
+    <div>
+      <nav>
+        <Navabr />
+      </nav>
+      <main className="min-h-screen px-4  ">{children}</main>
+      <footer>
+        <Footer />
+      </footer>
+    </div>
+  );
+};
 
-export default AppProvider
+export default AppProvider;

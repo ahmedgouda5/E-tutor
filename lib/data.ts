@@ -21,24 +21,24 @@ interface INavabar {
 export const Navabar: INavabar[] = [
   {
     label: "Home",
-    href: "/",
+    href: "/ELearn",
   },
 
   {
     label: " Courses",
-    href: "/blog",
+    href: "/ELearn/courses",
   },
   {
     label: "About",
-    href: "/about",
+    href: "/ELearn/about",
   },
   {
     label: "Contact",
-    href: "/contact",
+    href: "/ELearn/contact",
   },
   {
     label: "Become an Instructor",
-    href: "/become-instructor",
+    href: "/ELearn/become-instructor",
   },
 ];
 
@@ -322,5 +322,141 @@ export const TopInstructorData = [
     major: "Lead Developer",
     rating: 4.2,
     students: "2,711",
+  },
+];
+
+export interface ICourse {
+  id: number;
+  category: string;
+  price: string;
+  discount: number;
+  title: string;
+  rating: number;
+  students: string;
+  image: string;
+  instrucorImage: string;
+  instructorName: string;
+}
+
+export const AllCourses: ICourse[] = [
+  {
+    id: 1,
+    category: "AI & Machine Learning",
+    price: "$57",
+    discount: 56,
+    title: "Machine Learning A–Z™: Hands-On Python & R In Data...",
+    rating: 5.0,
+    students: "265.7K",
+    image: "/courses/course-1.png",
+    instrucorImage: "/Instructors/Inst1.png",
+    instructorName: "Kevin Gilbert",
+  },
+  {
+    id: 2,
+    category: "IT & Software",
+    price: "$57",
+    discount: 56,
+    title: "The Complete 2021 Web Development Bootcamp",
+    rating: 5.0,
+    students: "265.7K",
+    image: "/courses/course-2.png",
+    instrucorImage: "/Instructors/Inst2.png",
+    instructorName: "Devon Lane",
+  },
+  {
+    id: 3,
+    category: "IT & Software",
+    price: "$57",
+    discount: 56,
+    title: "Learn Python Programming Masterclass",
+    rating: 5.0,
+    students: "265.7K",
+    image: "/courses/course-3.png",
+    instrucorImage: "/Instructors/Inst3.png",
+    instructorName: "Jane Cooper",
+  },
+  {
+    id: 4,
+    category: "Marketing",
+    price: "$57",
+    discount: 56,
+    title: "The Complete Digital Marketing Course - 12 Courses in 1",
+    rating: 5.0,
+    students: "265.7K",
+    image: "/courses/course-4.png",
+    instrucorImage: "/Instructors/Inst4.png",
+    instructorName: "Albert Flores",
+  },
+  {
+    id: 5,
+    category: "IT & Software",
+    price: "$57",
+    discount: 56,
+    title: "Reiki Level I, II and Master/Teacher Program",
+    rating: 5.0,
+    students: "265.7K",
+    image: "/courses/course-5.png",
+    instrucorImage: "/Instructors/Inst5.png",
+    instructorName: "Kathryn Murphy",
+  },
+  {
+    id: 6,
+    category: "Music",
+    price: "$57",
+    discount: 56,
+    title: "The Complete Foundation Stock Trading Course",
+    rating: 5.0,
+    students: "265.7K",
+    image: "/courses/course-6.png",
+    instrucorImage: "/Instructors/Inst1.png",
+    instructorName: "Kathryn Murphy",
+  },
+  {
+    id: 7,
+    category: "Marketing",
+    price: "$57",
+    discount: 56,
+    title: "Beginner to Pro in Excel: Financial Modeling and Valuation",
+    rating: 5.0,
+    students: "265.7K",
+    image: "/courses/course-7.png",
+    instrucorImage: "/Instructors/Inst2.png",
+    instructorName: "Devon Lane",
+  },
+  {
+    id: 8,
+    category: "IT & Software",
+    price: "$57",
+    discount: 56,
+    title: "The Python Mega Course: Build 10 Real-World Applications",
+    rating: 5.0,
+    students: "265.7K",
+    image: "/courses/course-8.png",
+    instrucorImage: "/Instructors/Inst3.png",
+    instructorName: "Jane Cooper",
+  },
+  {
+    id: 9,
+    category: "Design",
+    price: "$57",
+    discount: 56,
+    title: "Copywriting – Become a Freelance Copywriter, your own boss",
+    rating: 5.0,
+    students: "265.7K",
+    image: "/courses/course-9.png",
+    instrucorImage: "/Instructors/Inst4.png",
+    instructorName: "Albert Flores",
+  },
+  {
+    id: 10,
+    category: "Business",
+    price: "$57",
+    discount: 56,
+    title: "Google Analytics Certification – Learn How To Pass The Exam",
+    rating: 5.0,
+    students: "265.7K",
+    image: "/courses/course-10.png",
+    instrucorImage: "/Instructors/Inst5.png",
+    instructorName: "Kathryn Murphy",
   },
 ];

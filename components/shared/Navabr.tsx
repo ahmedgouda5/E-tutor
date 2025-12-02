@@ -23,7 +23,7 @@ const Navabr = () => {
 
     return (
         <nav className="md:border-b pb-3  ">
-            <section className="hidden md:flex justify-between items-center bg-gray-900 px-4 py-2">
+            <section className="hidden md:flex justify-between items-center bg-[#1D2026] px-4 py-2">
                 <ul className="flex gap-6 items-center">
                     {Navabar.map(({ label, href }) => (
                         <li key={href}>
@@ -44,10 +44,12 @@ const Navabr = () => {
             </section>
             <section className="flex justify-between items-center  px-4 py-3">
                 <div className="flex items-center gap-5">
+                    <Link href="/">
                     <h1 className="logo flex items-center gap-2">
                         <Image src="/GraduationCap.webp" alt="E-tutor logo" width={40} height={40} priority fetchPriority="high" />
                         <span className="text-2xl font-semibold">E-tutor</span>
                     </h1>
+                    </Link>
 
                     <div className="hidden md:block">
                         <InputGroupDemo />
@@ -65,12 +67,12 @@ const Navabr = () => {
                     <ul className="hidden md:flex items-center gap-2">
                         <li>
                             <Button className="bg-orange-100 text-orange-500 hover:bg-orange-200">
-                                Create Account
+                                <Link href="/Auth/signup"> Create Account</Link>
                             </Button>
                         </li>
                         <li>
                             <Button className="text-white bg-orange-500 hover:bg-orange-600">
-                                Sign in
+                                <Link href="/Auth/signin"> Sign in</Link>
                             </Button>
                         </li>
                     </ul>
@@ -87,7 +89,7 @@ const Navabr = () => {
 
 
             {open && (
-                <div className=" overflow-x-hidden absolute w-[95%] md:hidden px-4 mx-3 py-3 rounded-2xl bg-gray-800 border-t border-gray-700 animate-fadeIn">
+                <div className=" overflow-x-hidden z-50 absolute w-[95%] md:hidden px-4 mx-3 py-3 rounded-2xl bg-gray-800 border-t border-gray-700 animate-fadeIn">
                     <ul className="flex flex-col gap-3 mb-3">
                         {Navabar.map(({ label, href }) => (
                             <li key={href}>
@@ -117,10 +119,10 @@ const Navabr = () => {
                     </ul>
                     <div className="mt-4 flex flex-col gap-2">
                         <Button className="bg-orange-100 text-orange-500 hover:bg-orange-200 w-full">
-                            Create Account
+                            <Link href="Auth/signup"> Create Account</Link>
                         </Button>
                         <Button className="text-white bg-orange-500 hover:bg-orange-600 w-full">
-                            Sign in
+                          <Link href="/Auth/signin"> Sign in</Link>
                         </Button>
                     </div>
                 </div>
