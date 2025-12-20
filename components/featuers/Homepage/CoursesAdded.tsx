@@ -1,9 +1,10 @@
 "use client";
 import React, { useState } from "react";
-import { Heart, Clock, Users, BarChart3, ShoppingCart } from "lucide-react";
+import { Heart, Clock, Users, BarChart3 } from "lucide-react";
 import Image from "next/image";
 import { bestSellingCourses } from "@/lib/data";
 import Heading from "@/components/shared/heading";
+import { t } from "i18next";
 
 // Type definitions
 type Course = typeof bestSellingCourses[0];
@@ -146,14 +147,14 @@ const CourseCard: React.FC<CourseCardProps> = ({
 };
 
 // RecentlyAddedCourses Component
-const RecentlyAddedCourses: React.FC = () => {
+const RecentlyAddedCourses: React.FC<{ className?: string }> = ({ className }) => {
   const [isHovered, setIsHovered] = useState<number | null>(null);
   const [favorites, setFavorites] = useState<{ [key: string]: boolean }>({});
 
   return (
-    <section className="py-12 bg-gray-50 rounded-lg">
+    <section className={`py-12 bg-gray-50 rounded-lg ${className || ''}`}>
       <div className="max-w-7xl mx-auto px-4">
-        <Heading heading="Recently Added Courses" />
+        <Heading heading={t("Recently Added Courses")} />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {bestSellingCourses.slice(0, 3).map((course, index) => (

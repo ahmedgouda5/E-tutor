@@ -1,12 +1,15 @@
+"use client";
 import { bestSellingCourses } from '@/lib/data'
 import Image from 'next/image'
 import Heading from './heading'
 import Link from 'next/link'
+import { useTranslation } from 'react-i18next';
 
-const BestSelling = () => {
+const BestSelling = ({ className }: { className?: string }) => {
+    const { t } = useTranslation();
     return (
-        <main>
-            < Heading heading="Best Selling Courses" />
+        <main className={className}>
+            < Heading heading={t("Best Selling Courses")} />
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
                 {bestSellingCourses.slice(0, 4).map((course, i) => (

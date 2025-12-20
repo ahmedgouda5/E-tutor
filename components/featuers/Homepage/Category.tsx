@@ -1,12 +1,16 @@
+"use client";
 import Heading from "@/components/shared/heading";
 import { categories } from "@/lib/data";
-import { ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import "../../../app/i18n/client";
+import { useTranslation } from "react-i18next";
 
 const Category = () => {
+  const { t, i18n } = useTranslation();
   return (
     <main>
-      <Heading heading="Browse top category" />
+      <Heading heading={t("Browse top category")} />
       <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 ">
         {categories.map((cat, i) => {
           const Icon = cat.icon;
@@ -30,17 +34,21 @@ const Category = () => {
           );
         })}
       </div>
-      <p className="text-center my-7">
-        We have more category & subcategory.
+      <div className="text-center my-7 flex items-center gap-2 justify-center ">
+       <h3>{t("We have more category & subcategory")}</h3>
         <Link
           className="text-orange-500 inline-flex items-center gap-1 font-medium"
           href="/ELearn/courses"
           prefetch
         >
-          Browse All
-          <ArrowRight className="w-4 h-4 translate-y-0.5" />
+          {t("Browse All")}
+          {i18n.language === "en" ? (
+            <ArrowRight className="w-4 h-4 translate-y-0.5" />
+          ) : (
+            <ArrowLeft className="w-4 h-4 translate-y-0.5" />
+          )}
         </Link>
-      </p>
+      </div>
     </main>
   );
 };

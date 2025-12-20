@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { Play, Clock, BarChart, Award, Globe, Star, Check } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -33,6 +33,8 @@ const CourseDetails = () => {
         return <Descritption course={course} />;
     }
   };
+
+
 
   const courseFeatures = [
     { icon: Clock, text: "3 hrs on-demand video" },
@@ -259,12 +261,13 @@ const CourseDetails = () => {
                   <button className="w-full py-3 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 transition-colors">
                     Add to Cart
                   </button>
-                  <button className="w-full py-3 border-2 border-orange-500 text-orange-500 font-semibold rounded-lg hover:bg-orange-50 transition-colors">
-                    Buy Now
-                  </button>
+                  <Link href={`/ELearn/courses/${id}/gift`}>
+                    <button className="w-full py-3 border-2 border-orange-500 text-orange-500 font-semibold rounded-lg hover:bg-orange-50 transition-colors">
+                      Buy Now
+                    </button>
+                  </Link>
                 </div>
 
-                {/* Payment Methods */}
                 <div className="space-y-3 pt-4">
                   <div className="flex  justify-evenly text-sm">
                     <span className="text-white p-2 rounded-2xl bg-orange-500 hover:bg-orange-600 cursor-pointer">
@@ -274,12 +277,11 @@ const CourseDetails = () => {
                       href={`/ELearn/courses/${id}/gift`}
                       className="text-white p-2 rounded-2xl bg-orange-500 hover:bg-orange-600 cursor-pointer"
                     >
-                      Gift Course
+                      <button>Gift this course</button>
                     </Link>
                   </div>
                 </div>
 
-                {/* Course Includes */}
                 <div className="pt-4">
                   <h3 className="font-semibold mb-3">This course includes:</h3>
                   <div className="space-y-2">
@@ -294,7 +296,6 @@ const CourseDetails = () => {
                   </div>
                 </div>
 
-                {/* Share */}
                 <div className="pt-4 border-t">
                   <p className="text-sm font-medium mb-3">Share this course:</p>
                   <div className="flex gap-2">

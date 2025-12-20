@@ -1,7 +1,11 @@
+"use client";
 import Image from "next/image";
 import React from "react";
+import { useTranslation } from 'react-i18next';
 
-const TrustedCompanies = () => {
+const TrustedCompanies = ({ className }: { className?: string }) => {
+  const { t } = useTranslation();
+  
   const companies = [
     { id: 1, logo: "/sponsers/netflix.png", name: "Netflix" },
     { id: 2, logo: "/sponsers/youtube.png", name: "YouTube" },
@@ -14,19 +18,16 @@ const TrustedCompanies = () => {
   ];
 
   return (
-    <section className="my-16 max-w-7xl mx-auto ">
+    <section className={`my-16 max-w-7xl mx-auto ${className || ''}`}>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-center">
 
-        {/* LEFT SIDE TEXT */}
         <div>
-          <h2 className="text-3xl font-bold mb-4">6.3k trusted companies</h2>
+          <h2 className="text-3xl font-bold mb-4">{t('6.3k trusted companies')}</h2>
           <p className="text-gray-600 leading-relaxed">
-            Nullam egestas tellus at enim ornare tristique.  
-            Class aptent taciti sociosqu ad litora torquent per conubia nostra.
+            {t('Nullam egestas tellus at enim ornare tristique. Class aptent taciti sociosqu ad litora torquent per conubia nostra.')}
           </p>
         </div>
 
-        {/* LOGO GRID */}
         <div className="lg:col-span-2 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
           {companies.map((c) => (
             <div

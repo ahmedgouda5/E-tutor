@@ -2,133 +2,193 @@
 
 import { Navabar } from "@/lib/data";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 const { Bell, Heart, ShoppingCart, Menu, X } = await import("lucide-react");
 import { Button } from "../ui/button";
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import dynamic from "next/dynamic";
+import { AuthStore } from "@/store/AuthStore";
+import { useTranslation } from "react-i18next";
+import { AnimatedTooltip } from "../ui/animated-tooltip";
 
 const InputGroupDemo = dynamic(() => import("../featuers/InputGroupDemo"), {
-    ssr: false,
+  ssr: false,
 });
 
-const NavigationMenuDemo = dynamic(() => import("../featuers/NavigationMenuDemo"), {
+const NavigationMenuDemo = dynamic(
+  () => import("../featuers/NavigationMenuDemo"),
+  {
     ssr: false,
-})
+  }
+);
 
 const Navabr = () => {
-    const pathname = usePathname();
-    const [open, setOpen] = useState(false);
+  const router=useRouter()
+  const HandleStudentProfile=useCallback(()=>{
+     router.push("/ELearn/student/")
+  },[])
+  const { t } = useTranslation();
+  const { formData } = AuthStore();
+  console.log(formData);
+  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
 
-    return (
-        <nav className="md:border-b pb-3  ">
-            <section className="hidden md:flex justify-between items-center bg-[#1D2026] px-4 py-2">
-                <ul className="flex gap-6 items-center">
-                    {Navabar.map(({ label, href }) => (
-                        <li key={href}>
-                            <Link
-                                href={href}
-                                prefetch
-                                className={`transition-colors duration-200 ${pathname === href
-                                    ? "text-orange-500 font-semibold"
-                                    : "text-white hover:text-orange-400"
-                                    }`}
-                            >
-                                {label}
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
-                <NavigationMenuDemo />
-            </section>
-            <section className="flex justify-between items-center  px-4 py-3">
-                <div className="flex items-center gap-5">
-                    <Link href="/">
-                    <h1 className="logo flex items-center gap-2">
-                        <Image src="/GraduationCap.webp" alt="E-tutor logo" width={40} height={40} priority fetchPriority="high" />
-                        <span className="text-2xl font-semibold">E-tutor</span>
-                    </h1>
-                    </Link>
+  return (
+    <nav className="md:border-b pb-3  ">
+      <section className="hidden md:flex justify-between items-center bg-[#1D2026] px-4 py-2">
+        <ul className="flex gap-6 items-center">
+          {Navabar.map(({ label, href }) => (
+            <li key={href}>
+              <Link
+                href={href}
+                className={`transition-colors duration-200 ${
+                  pathname === href
+                    ? "text-orange-500 font-semibold"
+                    : "text-white hover:text-orange-400"
+                }`}
+              >
+                {t(label)}
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <NavigationMenuDemo />
+      </section>
+      <section className="flex justify-between items-center  px-4 py-3">
+        <div className="flex items-center gap-5">
+          <Link href="/">
+            <h1 className="logo flex items-center gap-2">
+              <Image
+                src="/GraduationCap.webp"
+                alt="E-tutor logo"
+                width={40}
+                height={40}
+                priority
+                fetchPriority="high"
+              />
+              <span className="text-2xl font-semibold">E-tutor</span>
+            </h1>
+          </Link>
 
-                    <div className="hidden md:block">
-                        <InputGroupDemo />
-                    </div>
-                </div>
+          <div className="hidden md:block">
+            <InputGroupDemo />
+          </div>
+        </div>
 
-                <div className="flex items-center gap-4">
-                    {/* Icons */}
-                    <ul className="hidden md:flex gap-4 items-center">
-                        <li><Bell /></li>
-                        <li><Heart /></li>
-                        <li><ShoppingCart /></li>
-                    </ul>
+        <div className="flex items-center gap-4">
+          <ul className="hidden md:flex gap-4 items-center">
+            <li>
+              <Bell />
+            </li>
+            <li>
+              <Heart />
+            </li>
+            <li>
+              <ShoppingCart />
+            </li>
+          </ul>
 
-                    <ul className="hidden md:flex items-center gap-2">
-                        <li>
-                            <Button className="bg-orange-100 text-orange-500 hover:bg-orange-200">
-                                <Link href="/Auth/signup"> Create Account</Link>
-                            </Button>
-                        </li>
-                        <li>
-                            <Button className="text-white bg-orange-500 hover:bg-orange-600">
-                                <Link href="/Auth/signin"> Sign in</Link>
-                            </Button>
-                        </li>
-                    </ul>
+          <ul className="hidden md:flex items-center gap-2">
+            <li>
+              <Button className="bg-orange-100 text-orange-500 hover:bg-orange-200">
+                {formData.firstName ? (
+                  <>
+                    {formData.firstName}
+                    {formData.lastName}
+                  </>
+                ) : (
+                  <Link href="/Auth/signup">{t("Create Account")}</Link>
+                )}
+              </Button>
+            </li>
+            <li>
+             
+                {formData.firstName ? (
+                  <AnimatedTooltip
+                  onClick={HandleStudentProfile}
+                    items={[
+                      {
+                        id: 1,
+                        name: "John Doe",
+                        designation: "Software Engineer",
+                        image:
+                          "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80",
+                      },
+                    ]}
+                  />
+                ) : (
+                  <Button className="text-white bg-orange-500 hover:bg-orange-600"><Link href="/Auth/signin">{t("Sign in")}</Link></Button>
+                )}
+              
+            </li>
+          </ul>
 
-                    <button
-                        className="md:hidden "
-                        onClick={() => setOpen(!open)}
-                    >
-                        {open ? <X size={28} /> : <Menu size={28} />}
-                    </button>
-                </div>
-            </section>
+          <button className="md:hidden " onClick={() => setOpen(!open)}>
+            {open ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
+      </section>
 
+      {open && (
+        <div className=" overflow-x-hidden z-50 absolute w-[95%] md:hidden px-4 mx-3 py-3 rounded-2xl bg-gray-800 border-t border-gray-700 animate-fadeIn">
+          <ul className="flex flex-col gap-3 mb-3">
+            {Navabar.map(({ label, href }) => (
+              <li key={href}>
+                <Link
+                  href={href}
+                  prefetch
+                  onClick={() => setOpen(false)}
+                  className={`block py-2 ${
+                    pathname === href
+                      ? "text-orange-400 font-semibold"
+                      : "text-gray-200 hover:text-orange-400"
+                  }`}
+                >
+                  {t(label)}
+                </Link>
+              </li>
+            ))}
+          </ul>
 
+          <div className="border-t border-gray-700 pt-3">
+            <NavigationMenuDemo />
+          </div>
 
-            {open && (
-                <div className=" overflow-x-hidden z-50 absolute w-[95%] md:hidden px-4 mx-3 py-3 rounded-2xl bg-gray-800 border-t border-gray-700 animate-fadeIn">
-                    <ul className="flex flex-col gap-3 mb-3">
-                        {Navabar.map(({ label, href }) => (
-                            <li key={href}>
-                                <Link
-                                    href={href}
-                                    prefetch
-                                    onClick={() => setOpen(false)}
-                                    className={`block py-2 ${pathname === href
-                                        ? "text-orange-400 font-semibold"
-                                        : "text-gray-200 hover:text-orange-400"
-                                        }`}
-                                >
-                                    {label}
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
-
-                    <div className="border-t border-gray-700 pt-3">
-                        <NavigationMenuDemo />
-                    </div>
-
-                    <ul className="flex gap-4  items-center text-white mt-4">
-                        <li><Bell /></li>
-                        <li><Heart /></li>
-                        <li><ShoppingCart /></li>
-                    </ul>
-                    <div className="mt-4 flex flex-col gap-2">
-                        <Button className="bg-orange-100 text-orange-500 hover:bg-orange-200 w-full">
-                            <Link href="Auth/signup"> Create Account</Link>
-                        </Button>
-                        <Button className="text-white bg-orange-500 hover:bg-orange-600 w-full">
-                          <Link href="/Auth/signin"> Sign in</Link>
-                        </Button>
-                    </div>
-                </div>
-            )}
-        </nav>
-    );
+          <ul className="flex gap-4  items-center text-white mt-4">
+            <li>
+              <Bell />
+            </li>
+            <li>
+              <Heart />
+            </li>
+            <li>
+              <ShoppingCart />
+            </li>
+          </ul>
+          <div className="mt-4 flex flex-col gap-2">
+            <Button className="bg-orange-100 text-orange-500 hover:bg-orange-200 w-full">
+              {formData.firstName ? (
+                <>
+                  {formData.firstName}
+                  {formData.lastName}
+                </>
+              ) : (
+                <Link href="/Auth/signup">{t("Create Account")}</Link>
+              )}{" "}
+            </Button>
+            <Button className="text-white bg-orange-500 hover:bg-orange-600 w-full">
+              {formData.firstName ? (
+                <Link href="/Auth/logout">{t("log out")}</Link>
+              ) : (
+                <Link href="/Auth/signin">{t("Sign in")}</Link>
+              )}{" "}
+            </Button>
+          </div>
+        </div>
+      )}
+    </nav>
+  );
 };
 
-export default React.memo(Navabr); 
+export default React.memo(Navabr);

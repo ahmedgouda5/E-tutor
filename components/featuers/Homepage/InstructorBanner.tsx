@@ -1,9 +1,13 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import React from "react";
+import { useTranslation } from 'react-i18next';
 
-const InstructorBanner = () => {
+const InstructorBanner = ({ className }: { className?: string }) => {
+    const { t } = useTranslation();
+    
     const InstructorBannerData = [
         {
             id: 1,
@@ -32,17 +36,16 @@ const InstructorBanner = () => {
     ];
 
     return (
-        <div className="flex flex-col lg:flex-row justify-between gap-8 my-10">
+        <div className={`flex flex-col lg:flex-row justify-between gap-8 my-10 ${className || ''}`}>
             {/* LEFT BANNER */}
             <div className="flex items-center justify-between bg-linear-to-r from-amber-600 to-amber-500 px-10 py-8 rounded-xl text-white w-full lg:w-[48%]">
                 <div className="flex flex-col gap-4 max-w-md">
-                    <h2 className="text-3xl font-bold">Become an Instructor</h2>
+                    <h2 className="text-3xl font-bold">{t('Become an Instructor')}</h2>
                     <p className="text-sm leading-relaxed opacity-90">
-                        Instructors from around the world teach millions of students on
-                        Udemy. We provide the tools and skills to teach what you love.
+                        {t('Instructors from around the world teach millions of students on Udemy. We provide the tools and skills to teach what you love.')}
                     </p>
                     <Button className="bg-white text-amber-600 hover:bg-gray-100 flex items-center gap-2 w-fit">
-                        Start Teaching <ArrowRight size={18} />
+                        {t('Start Teaching')} <ArrowRight size={18} />
                     </Button>
                 </div>
 
@@ -58,7 +61,7 @@ const InstructorBanner = () => {
             {/* RIGHT STEPS */}
             <div className="w-full lg:w-[48%]">
                 <h1 className="text-3xl font-bold mb-6">
-                    Your teaching & earning steps
+                    {t('Your teaching & earning steps')}
                 </h1>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -78,7 +81,7 @@ const InstructorBanner = () => {
                                 style={{ color: item.textColor }}
                                 className="text-md  font-semibold"
                             >
-                                {item.title}
+                                {t(item.title)}
                             </h3>
                         </div>
                     ))}

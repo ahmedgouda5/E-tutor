@@ -1,19 +1,22 @@
+
+"use client";
 import { coursesFeatured } from "@/lib/data";
 import { BarChart2, Clock, Star, Users } from "lucide-react";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 
-const FeatureCourses = () => {
+const FeatureCourses = ({ className }: { className?: string }) => {
+    const { t } = useTranslation();
     return (
-        <div className="max-w-7xl mx-auto px-4 py-16 bg-white">
+        <div className={`max-w-7xl mx-auto px-4 py-16 bg-white ${className || ''}`}>
 
             <div className="flex flex-col md:flex-row justify-between items-start mb-12 gap-4">
                 <div className="flex  text-center justify-between  items-center flex-wrap  w-full">
                     <h2 className="text-4xl font-bold text-gray-900 mb-3">
-                        Our feature courses
+                        {t("Our feature courses")}
                     </h2>
                     <p className="text-gray-500 max-w-md">
-                        Vestibulum sed dolor sed diam mollis maximus vel nec dolor.
-                        Donec varius purus et eleifend porta.
+                        {t("Vestibulum sed dolor sed diam mollis maximus vel nec dolor. Donec varius purus et eleifend porta." )}
                     </p>
                 </div>
             </div>

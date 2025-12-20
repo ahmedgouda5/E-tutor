@@ -5,6 +5,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
 import { Eye, EyeOff } from "lucide-react";
 import React, { useState } from "react";
+import toast from "react-hot-toast";
+import { redirect } from "next/navigation";
+import { AuthStore } from "@/store/AuthStore";
 
 const FormSchema = z
   .object({
@@ -21,6 +24,8 @@ const FormSchema = z
   });
 
 const SignUp = () => {
+  const { formData,setFormData } = AuthStore();
+  console.log("from zustand",formData);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
 
@@ -35,8 +40,15 @@ const SignUp = () => {
   });
 
   const onSubmit = (data: z.infer<typeof FormSchema>) => {
-    console.log(data);
+    setFormData(data);
+    toast.loading("Creating account...");
+    setTimeout(() => {
+      toast.dismiss();
+      toast.success("Account created successfully");
+      redirect("/");
+    }, 1000);
     reset();
+
   };
 
   return (

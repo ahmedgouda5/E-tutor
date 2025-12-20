@@ -1,5 +1,7 @@
 import NavabrAuth from '@/components/featuers/Auth/shared/Navabr'
 import React from 'react'
+import { Toaster } from 'react-hot-toast';
+
 
 const layout = ({ children }: { children: React.ReactNode }) => {
     return (
@@ -12,6 +14,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
                 {children}
             </main>
            </div>
+           <Toaster />
         </>
     )
 }

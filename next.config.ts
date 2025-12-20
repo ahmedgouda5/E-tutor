@@ -1,10 +1,23 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
- images: {
-    unoptimized: false,  // خلّيه false عشان optimization يشتغل
-    // domains: []  // مش محتاج لو كل الصور local
-  },
+  images: {
+    unoptimized: false,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "upload.wikimedia.org",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        port: "",
+        pathname: "/**",
+      },
+    ],
+  }, // خلّيه false عشان optimization يشتغل
 };
 
 export default nextConfig;

@@ -25,7 +25,7 @@ export const Navabar: INavabar[] = [
   },
 
   {
-    label: " Courses",
+    label: "Courses",
     href: "/ELearn/courses",
   },
   {
@@ -283,45 +283,74 @@ export const TopInstructorData = [
   {
     id: 1,
     name: "Kevin Gilbert",
-    instrucorImage: "/Instructors/Inst1.png",
-    major: "senior developer",
+    instrucorImage: "/instructors/inst1.png",
+    title: "Senior Developer",
     rating: 4.6,
-    students: "534",
+    students: 534,
   },
   {
     id: 2,
-    instrucorImage: "/Instructors/Inst2.png",
-
     name: "Devon Lane",
-    major: "Digital Product Designer",
+    instrucorImage: "/instructors/inst2.png",
+    title: "Digital Product Designer",
     rating: 4.9,
-    students: "451,133",
+    students: 1133,
   },
   {
     id: 3,
-    instrucorImage: "/Instructors/Inst3.png",
-
     name: "Jane Cooper",
-    major: "UI/UX Designer",
+    instrucorImage: "/instructors/inst3.png",
+    title: "UI / UX Designer",
     rating: 4.8,
-    students: "435,671",
+    students: 5671,
   },
   {
     id: 4,
-    instrucorImage: "/Instructors/Inst4.png",
-
     name: "Albert Flores",
-    major: "Adobe Instructor",
+    instrucorImage: "/instructors/inst4.png",
+    title: "Adobe Instructor",
     rating: 4.7,
-    students: "511,123",
+    students: 7123,
   },
   {
     id: 5,
-    instrucorImage: "/Instructors/Inst5.png",
     name: "Kathryn Murphy",
-    major: "Lead Developer",
+    instrucorImage: "/instructors/inst5.png",
+    title: "Lead Developer",
     rating: 4.2,
-    students: "2,711",
+    students: 2711,
+  },
+  {
+    id: 6,
+    name: "Brooklyn Simmons",
+    instrucorImage: "/instructors/inst6.png",
+    title: "Frontend Engineer",
+    rating: 4.5,
+    students: 3890,
+  },
+  {
+    id: 7,
+    name: "Courtney Henry",
+    instrucorImage: "/instructors/inst7.png",
+    title: "Backend Engineer",
+    rating: 4.4,
+    students: 4120,
+  },
+  {
+    id: 8,
+    name: "Eleanor Pena",
+    instrucorImage: "/instructors/inst8.png",
+    title: "Full Stack Developer",
+    rating: 4.3,
+    students: 3560,
+  },
+  {
+    id: 9,
+    name: "Guy Hawkins",
+    instrucorImage: "/instructors/inst9.png",
+    title: "Mobile App Instructor",
+    rating: 4.1,
+    students: 1980,
   },
 ];
 
@@ -336,6 +365,11 @@ export interface ICourse {
   image: string;
   instrucorImage: string;
   instructorName: string;
+  instructorTitle?: string;
+  instructorBio?: string;
+  instructorRating?: number;
+  instructorStudents?: number;
+  instructorCourses?: number;
 }
 
 export const AllCourses: ICourse[] = [
@@ -350,6 +384,12 @@ export const AllCourses: ICourse[] = [
     image: "/courses/course-1.png",
     instrucorImage: "/Instructors/Inst1.png",
     instructorName: "Kevin Gilbert",
+    instructorTitle: "Senior Developer",
+    instructorBio:
+      "Experienced developer with 10+ years in AI and machine learning. Passionate about teaching and helping students achieve their goals.",
+    instructorRating: 4.6,
+    instructorStudents: 534000,
+    instructorCourses: 8,
   },
   {
     id: 2,
@@ -362,6 +402,12 @@ export const AllCourses: ICourse[] = [
     image: "/courses/course-2.png",
     instrucorImage: "/Instructors/Inst2.png",
     instructorName: "Devon Lane",
+    instructorTitle: "Digital Product Designer",
+    instructorBio:
+      "Full-stack developer and designer specializing in modern web technologies. Helping students create beautiful and functional web applications.",
+    instructorRating: 4.9,
+    instructorStudents: 451133,
+    instructorCourses: 12,
   },
   {
     id: 3,
@@ -374,6 +420,12 @@ export const AllCourses: ICourse[] = [
     image: "/courses/course-3.png",
     instrucorImage: "/Instructors/Inst3.png",
     instructorName: "Jane Cooper",
+    instructorTitle: "UI/UX Designer",
+    instructorBio:
+      "Python expert with extensive experience in software development and data science. Committed to making programming accessible to everyone.",
+    instructorRating: 4.8,
+    instructorStudents: 435671,
+    instructorCourses: 15,
   },
   {
     id: 4,
@@ -386,6 +438,12 @@ export const AllCourses: ICourse[] = [
     image: "/courses/course-4.png",
     instrucorImage: "/Instructors/Inst4.png",
     instructorName: "Albert Flores",
+    instructorTitle: "Adobe Instructor",
+    instructorBio:
+      "Digital marketing specialist with proven track record in SEO, social media, and content marketing. Helping businesses grow their online presence.",
+    instructorRating: 4.7,
+    instructorStudents: 511123,
+    instructorCourses: 10,
   },
   {
     id: 5,
@@ -398,6 +456,12 @@ export const AllCourses: ICourse[] = [
     image: "/courses/course-5.png",
     instrucorImage: "/Instructors/Inst5.png",
     instructorName: "Kathryn Murphy",
+    instructorTitle: "Lead Developer",
+    instructorBio:
+      "Holistic wellness practitioner and certified Reiki Master with over 15 years of experience. Dedicated to teaching healing arts and personal growth.",
+    instructorRating: 4.2,
+    instructorStudents: 2711,
+    instructorCourses: 5,
   },
   {
     id: 6,
@@ -410,6 +474,12 @@ export const AllCourses: ICourse[] = [
     image: "/courses/course-6.png",
     instrucorImage: "/Instructors/Inst1.png",
     instructorName: "Kathryn Murphy",
+    instructorTitle: "Financial Analyst",
+    instructorBio:
+      "Professional stock trader with 20+ years of market experience. Teaching practical strategies for successful investing.",
+    instructorRating: 4.5,
+    instructorStudents: 125000,
+    instructorCourses: 7,
   },
   {
     id: 7,
@@ -422,6 +492,12 @@ export const AllCourses: ICourse[] = [
     image: "/courses/course-7.png",
     instrucorImage: "/Instructors/Inst2.png",
     instructorName: "Devon Lane",
+    instructorTitle: "Financial Modeling Expert",
+    instructorBio:
+      "Excel specialist and financial analyst. Teaching business professionals to master financial modeling and data analysis.",
+    instructorRating: 4.8,
+    instructorStudents: 320000,
+    instructorCourses: 9,
   },
   {
     id: 8,
@@ -434,6 +510,12 @@ export const AllCourses: ICourse[] = [
     image: "/courses/course-8.png",
     instrucorImage: "/Instructors/Inst3.png",
     instructorName: "Jane Cooper",
+    instructorTitle: "Python Developer",
+    instructorBio:
+      "Experienced Python developer and educator. Specializing in practical, project-based learning to build real-world applications.",
+    instructorRating: 4.9,
+    instructorStudents: 580000,
+    instructorCourses: 14,
   },
   {
     id: 9,
@@ -446,6 +528,12 @@ export const AllCourses: ICourse[] = [
     image: "/courses/course-9.png",
     instrucorImage: "/Instructors/Inst4.png",
     instructorName: "Albert Flores",
+    instructorTitle: "Professional Copywriter",
+    instructorBio:
+      "Award-winning copywriter with 12+ years crafting compelling content for major brands. Teaching the art of persuasive writing.",
+    instructorRating: 4.7,
+    instructorStudents: 198000,
+    instructorCourses: 6,
   },
   {
     id: 10,
@@ -458,5 +546,144 @@ export const AllCourses: ICourse[] = [
     image: "/courses/course-10.png",
     instrucorImage: "/Instructors/Inst5.png",
     instructorName: "Kathryn Murphy",
+    instructorTitle: "Analytics Expert",
+    instructorBio:
+      "Google Analytics certified professional helping businesses leverage data for growth. Making analytics accessible and actionable.",
+    instructorRating: 4.6,
+    instructorStudents: 275000,
+    instructorCourses: 11,
   },
 ];
+
+export const COURSE_DATA = {
+  title: "Complete Website Responsive Design: Zero to Mastery",
+  currentVideo: {
+    title: "Introduction to Responsive Design",
+    url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    duration: "12:45",
+  },
+  instructor: {
+    name: "Ahmed Hassan",
+    title: "Senior Web Developer & Instructor",
+    image:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop",
+    bio: "10+ years of experience in web development. Taught over 50,000 students worldwide.",
+    rating: 4.8,
+    students: 45230,
+    courses: 12,
+  },
+  sections: [
+    {
+      id: 1,
+      title: "Getting Started",
+      duration: "45 min",
+      lectures: [
+        {
+          id: 1,
+          title: "Introduction to Responsive Design",
+          duration: "12:45",
+          completed: true,
+        },
+        {
+          id: 2,
+          title: "Setting Up Your Environment",
+          duration: "8:30",
+          completed: true,
+        },
+        {
+          id: 3,
+          title: "Understanding Mobile-First Approach",
+          duration: "15:20",
+          completed: false,
+        },
+      ],
+    },
+    {
+      id: 2,
+      title: "CSS Fundamentals",
+      duration: "2 hr 15 min",
+      lectures: [
+        {
+          id: 4,
+          title: "Flexbox Deep Dive",
+          duration: "25:10",
+          completed: false,
+        },
+        {
+          id: 5,
+          title: "CSS Grid Mastery",
+          duration: "32:45",
+          completed: false,
+        },
+        {
+          id: 6,
+          title: "Media Queries Explained",
+          duration: "18:30",
+          completed: false,
+        },
+        {
+          id: 7,
+          title: "Responsive Typography",
+          duration: "22:15",
+          completed: false,
+        },
+      ],
+    },
+    {
+      id: 3,
+      title: "Advanced Techniques",
+      duration: "3 hr 30 min",
+      lectures: [
+        {
+          id: 8,
+          title: "Container Queries",
+          duration: "28:40",
+          completed: false,
+        },
+        {
+          id: 9,
+          title: "Responsive Images & Videos",
+          duration: "35:20",
+          completed: false,
+        },
+        {
+          id: 10,
+          title: "Performance Optimization",
+          duration: "42:15",
+          completed: false,
+        },
+      ],
+    },
+  ],
+  comments: [
+    {
+      id: 1,
+      user: "Sarah Ahmed",
+      avatar:
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=50&h=50&fit=crop",
+      date: "2 days ago",
+      comment:
+        "This is an excellent explanation! The examples really helped me understand the concepts better.",
+      likes: 24,
+    },
+    {
+      id: 2,
+      user: "Mohamed Ali",
+      avatar:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop",
+      date: "5 days ago",
+      comment: "Great course! Can you add more examples about CSS Grid?",
+      likes: 12,
+    },
+    {
+      id: 3,
+      user: "Fatima Nour",
+      avatar:
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=50&h=50&fit=crop",
+      date: "1 week ago",
+      comment:
+        "Very clear and well-structured. Thank you for this amazing content!",
+      likes: 18,
+    },
+  ],
+};

@@ -5,13 +5,15 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import React from "react";
+import { useTranslation } from 'react-i18next';
 
 const About = () => {
+  const { t } = useTranslation();
   const Pathname = usePathname();
   return (
     <div className="my-3">
       <nav className="flex justify-center flex-col items-center space-y-3">
-        <h3 className="text-4xl font-bold text-gray-900">About</h3>
+        <h3 className="text-4xl font-bold text-gray-900">{t('About')}</h3>
         <span className="capitalize">{Pathname.slice(1, Pathname.length)}</span>
       </nav>
 
@@ -22,12 +24,10 @@ const About = () => {
               2007-{new Date().getFullYear()}
             </h2>
             <h4 className="text-xl md:text-2xl font-bold text-gray-900">
-              We share knowledge with the world
+              {t('We share knowledge with the world')}
             </h4>
             <p className="text-gray-400 font-mono text-sm md:text-base">
-              Interdum et malesuada fames ac ante ipsum primis in faucibus.
-              Praesent fermentum quam mauris. Fusce tempor et augue a aliquet.
-              Donec non ipsum non risus egestas tincidunt at vitae nulla.
+              {t('Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent fermentum quam mauris. Fusce tempor et augue a aliquet. Donec non ipsum non risus egestas tincidunt at vitae nulla.')}
             </p>
           </div>
 
@@ -55,33 +55,27 @@ const About = () => {
             priority
           />
           <div>
-            <h5 className="text-orange-600">OUR ONE BILLION MISSION</h5>
+            <h5 className="text-orange-600">{t('OUR ONE BILLION MISSION')}</h5>
             <h2 className="text-xl md:text-2xl font-bold text-gray-900">
-              Our one billion mission sounds bold, We agree.
+              {t('Our one billion mission sounds bold, We agree.')}
             </h2>
             <p className="text-gray-400 font-mono text-sm md:text-base">
-              &rdquo;We cannot solve our problems with the same thinking we used when
-              we created them.&ldquo;—Albert Einstein. Institutions are slow to
-              change. Committees are where good ideas and innovative thinking go
-              to die. Choose agility over dogma. Embrace and drive change. We
-              need to wipe the slate clean and begin with bold, radical
-              thinking.
+              {t('We cannot solve our problems with the same thinking we used when we created them.')}{' '}
+              {t('Albert Einstein. Institutions are slow to change. Committees are where good ideas and innovative thinking go to die. Choose agility over dogma. Embrace and drive change. We need to wipe the slate clean and begin with bold, radical thinking.')}
             </p>
           </div>
         </section>
         <section className="flex items-center gap-10 md:gap-20 flex-col-reverse md:flex-row bg-[#F5F7FA] rounded-lg p-2">
           <div className="space-y-2">
-            <h5 className="text-orange-600">OUR GALLERY</h5>
+            <h5 className="text-orange-600">{t('OUR GALLERY')}</h5>
             <h2 className="text-xl md:text-2xl font-bold text-gray-900">
-              We’ve been here almost 17 years
+              {t('We\'ve been here almost 17 years')}
             </h2>
             <p className="text-gray-400 font-mono text-sm md:text-base">
-              Fusce lobortis leo augue, sit amet tristique nisi commodo in.
-              Aliquam ac libero quis tellus venenatis imperdiet. Sed sed nunc
-              libero. Curabitur in urna ligula. torquent per conubia nostra.
+              {t('Fusce lobortis leo augue, sit amet tristique nisi commodo in. Aliquam ac libero quis tellus venenatis imperdiet. Sed sed nunc libero. Curabitur in urna ligula. torquent per conubia nostra.')}
             </p>
             <Button className="bg-orange-500 text-white p-3 rounded-lg w-fit mt-1 hover:bg-orange-600 transition">
-              Join our team →
+              {t('Join our team')} →
             </Button>
           </div>
           <Image
