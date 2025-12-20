@@ -14,7 +14,7 @@ import { SelectInstructor } from "./SelectInstructor";
 import { useCallback, useState } from "react";
 import toast from "react-hot-toast";
 
-export function AlertDialogMessage() {
+export function AlertDialogMessage({ instructorId }: { instructorId: number }) {
   const [open, setOpen] = useState(false);
   
   const handeleSend = useCallback(() => {
@@ -47,7 +47,7 @@ export function AlertDialogMessage() {
         </AlertDialogHeader>
 
         <div className="px-4 py-3 flex flex-col gap-2">
-          <SelectInstructor />
+          <SelectInstructor instructorId={instructorId} />
           <div>
             <textarea placeholder="Type your message..." className="w-[80%] h-[100px] border border-gray-300 rounded p-2 resize-none" />
           </div>
