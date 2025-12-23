@@ -1,9 +1,14 @@
-import { redirect } from 'next/navigation'
+"use client";
 
-const Home = () => {
-  return (
-    redirect('/ELearn')
-  )
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+
+export default function Home() {
+  const router = useRouter();
+
+  useEffect(() => {
+    router.replace("/ELearn");
+  }, [router]);
+
+  return null;
 }
-
-export default Home
