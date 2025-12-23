@@ -36,7 +36,6 @@ function NavigationMenuDemo() {
     <NavigationMenu>
       <NavigationMenuList className="text-white">
         
-        {/* 🌐 اللغة */}
         <NavigationMenuItem>
           <NavigationMenuTrigger className="bg-gray-900 text-white">
             Language
@@ -60,7 +59,6 @@ function NavigationMenuDemo() {
           </NavigationMenuContent>
         </NavigationMenuItem>
 
-        {/* 💰 العملة */}
         <NavigationMenuItem>
           <NavigationMenuTrigger className="bg-gray-900 text-white">
             Currency

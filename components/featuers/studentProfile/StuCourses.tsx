@@ -1,4 +1,4 @@
-import { PaginationDemo } from '@/components/featuers/studentProfile/Ui/pagination'
+import { PaginationDemo } from '@/components/featuers/studentProfile/StuUi/pagination'
 import { AllCourses } from '@/lib/data'
 import Image from 'next/image'
 import React, { useState } from 'react'

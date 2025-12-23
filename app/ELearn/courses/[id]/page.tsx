@@ -1,5 +1,5 @@
 "use client";
-import React, { useCallback, useState } from "react";
+import React, {  useState } from "react";
 import { Play, Clock, BarChart, Award, Globe, Star, Check } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -182,7 +182,6 @@ const CourseDetails = () => {
               </div>
             </div>
 
-            {/* Who this course is for */}
             <div className="space-y-4">
               <h2 className="text-2xl font-bold">Who this course is for:</h2>
               <div className="grid grid-cols-4 md:grid-cols-8 gap-6">
@@ -261,7 +260,7 @@ const CourseDetails = () => {
                   <button className="w-full py-3 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 transition-colors">
                     Add to Cart
                   </button>
-                  <Link href={`/ELearn/courses/${id}/gift`}>
+                  <Link href={`/ELearn/courses/${id}/checkout`}>
                     <button className="w-full py-3 border-2 border-orange-500 text-orange-500 font-semibold rounded-lg hover:bg-orange-50 transition-colors">
                       Buy Now
                     </button>

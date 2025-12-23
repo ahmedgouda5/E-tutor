@@ -25,9 +25,7 @@ export default function StuMessage({ title }: { title: string }) {
           {TopInstructorData.slice(0, 5).map((instructor, i) => (
             <li
               key={i}
-              className={`px-4 py-3 cursor-pointer hover:bg-gray-100 ${
-                i === 0 && "bg-orange-100"
-              }`}
+              className={`px-4 py-3 cursor-pointer ${user===instructor.id && "bg-orange-100"} `}
             >
               <div
                 className="flex items-center gap-2"

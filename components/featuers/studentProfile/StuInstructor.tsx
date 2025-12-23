@@ -2,7 +2,7 @@ import { TopInstructorData } from "@/lib/data";
 import { Star } from "lucide-react";
 import Image from "next/image";
 import React from "react";
-import { AlertDialogMessage } from "./Ui/Message";
+import { AlertDialogMessage } from "./StuUi/Message";
 
 const StuInstructor = ({ title }: { title: string }) => {
   return (

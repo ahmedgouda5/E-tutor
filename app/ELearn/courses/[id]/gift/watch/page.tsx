@@ -1,113 +1,22 @@
 "use client";
+import CourseSidebar from "@/components/featuers/CourseDetails/CoursesideBar";
 import WCourseNav from "@/components/featuers/CourseDetails/WCourseNav";
 import { AllCourses, COURSE_DATA } from "@/lib/data";
-import { Star, Play, CheckCircle, ChevronDown, ChevronUp, Clock, ThumbsUp, MessageCircle } from "lucide-react";
+import { Star, ThumbsUp, MessageCircle } from "lucide-react";
 import Image from "next/image";
-import React, { use, useCallback, memo } from "react";
-
-// ---------- TYPES ----------
-interface Lecture {
-  id: number;
-  title: string;
-  duration: string;
-  completed: boolean;
-}
-
-interface Section {
-  id: number;
-  title: string;
-  duration: string;
-  lectures: Lecture[];
-}
-
-
-
-
-const CourseSection = memo(function CourseSection({ section, isOpen, onToggle }: { section: Section; isOpen: boolean; onToggle: () => void }) {
-  return (
-    <div className="border-b border-gray-200">
-      <button
-        onClick={onToggle}
-        className="w-full px-4 py-3 flex items-center justify-between hover:bg-gray-50 transition"
-      >
-        <div className="flex-1 text-left">
-          <h3 className="font-semibold text-sm">{section.title}</h3>
-          <p className="text-xs text-gray-500 mt-1">
-            {section.lectures.length} lectures • {section.duration}
-          </p>
-        </div>
-        {isOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-      </button>
-
-      {isOpen && (
-        <div className="bg-gray-50">
-          {section.lectures.map((lecture: Lecture) => (
-            <div
-              key={lecture.id}
-              className="px-4 py-3 flex items-center gap-3 hover:bg-gray-100 cursor-pointer border-t border-gray-200"
-            >
-              <div className="shrink-0">
-                {lecture.completed ? (
-                  <CheckCircle className="w-4 h-4 text-green-600" />
-                ) : (
-                  <Play className="w-4 h-4 text-gray-400" />
-                )}
-              </div>
-
-              <div className="flex-1 min-w-0">
-                <p className="text-sm truncate">{lecture.title}</p>
-              </div>
-
-              <span className="text-xs text-gray-500 flex items-center gap-1">
-                <Clock className="w-3 h-3" />
-                {lecture.duration}
-              </span>
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-});
-
-const CourseSidebar = memo(function CourseSidebar({ sections }: { sections: Section[] }) {
-  "use client";
-
-  const [openSections, setOpenSections] = React.useState<number[]>([1]);
-
-  const toggleSection = useCallback((id: number) => {
-    setOpenSections((prev) =>
-      prev.includes(id) ? prev.filter((s) => s !== id) : [...prev, id]
-    );
-  }, []);
-
-  return (
-    <div>
-      {sections.map((sec: Section) => (
-        <CourseSection
-          key={sec.id}
-          section={sec}
-          isOpen={openSections.includes(sec.id)}
-          onToggle={() => toggleSection(sec.id)}
-        />
-      ))}
-    </div>
-  );
-});
+import React, { use } from "react";
 
 export default function Page({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
 
-
-  const course=AllCourses.find((course)=>course.id===Number(id))
+  const course = AllCourses.find((course) => course.id === Number(id));
 
   return (
     <div className="min-h-screen bg-gray-50">
       <nav>
-        <WCourseNav id={id}/>
+        <WCourseNav id={id} />
       </nav>
       <div className="flex flex-col lg:flex-row">
-        {/* LEFT SIDE */}
         <div className="flex-1 bg-black">
           <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
             <iframe
@@ -125,14 +34,21 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
             {/* Tabs */}
             <div className="border-b border-gray-200 mb-6">
               <div className="flex gap-6">
-                <button className="pb-3 border-b-2 border-orange-500 text-orange-500 font-semibold">Overview</button>
-                <button className="pb-3 text-gray-600 hover:text-gray-900">Q&A</button>
-                <button className="pb-3 text-gray-600 hover:text-gray-900">Notes</button>
-                <button className="pb-3 text-gray-600 hover:text-gray-900">Resources</button>
+                <button className="pb-3 border-b-2 border-orange-500 text-orange-500 font-semibold">
+                  Overview
+                </button>
+                <button className="pb-3 text-gray-600 hover:text-gray-900">
+                  Q&A
+                </button>
+                <button className="pb-3 text-gray-600 hover:text-gray-900">
+                  Notes
+                </button>
+                <button className="pb-3 text-gray-600 hover:text-gray-900">
+                  Resources
+                </button>
               </div>
             </div>
 
-            {/* Instructor */}
             <div className="mb-8">
               <h2 className="text-xl font-bold mb-4">Instructor</h2>
 
@@ -147,8 +63,12 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
                 />
 
                 <div>
-                  <h3 className="font-bold text-lg">{course?.instructorName}</h3>
-                  <p className="text-gray-600 text-sm mb-2">{course?.instructorTitle}</p>
+                  <h3 className="font-bold text-lg">
+                    {course?.instructorName}
+                  </h3>
+                  <p className="text-gray-600 text-sm mb-2">
+                    {course?.instructorTitle}
+                  </p>
 
                   <p className="text-gray-700 mb-3">{course?.instructorBio}</p>
 
@@ -158,7 +78,10 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
                       {course?.instructorRating} Rating
                     </span>
 
-                    <span>{course?.instructorStudents?.toLocaleString() ?? 0} Students</span>
+                    <span>
+                      {course?.instructorStudents?.toLocaleString() ?? 0}{" "}
+                      Students
+                    </span>
                     <span>{course?.instructorCourses} Courses</span>
                   </div>
                 </div>
@@ -180,7 +103,10 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
 
               <div className="space-y-4 mt-4">
                 {COURSE_DATA.comments.map((c) => (
-                  <div key={c.id} className="flex gap-4 pb-4 border-b border-gray-200">
+                  <div
+                    key={c.id}
+                    className="flex gap-4 pb-4 border-b border-gray-200"
+                  >
                     <div className="w-10 h-10 rounded-full overflow-hidden shrink-0">
                       <Image
                         src={c.avatar}
@@ -213,18 +139,19 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
                   </div>
                 ))}
               </div>
-
             </div>
           </div>
         </div>
-
-        {/* SIDEBAR */}
         <div className="lg:w-96 bg-white border-l border-gray-200 lg:h-screen lg:sticky lg:top-0 overflow-y-auto">
           <div className="p-4 border-b bg-gray-50">
             <h2 className="font-bold text-lg">Course Content</h2>
             <p className="text-sm text-gray-600">
               {COURSE_DATA.sections.length} sections •{" "}
-              {COURSE_DATA.sections.reduce((acc, s) => acc + s.lectures.length, 0)} lectures
+              {COURSE_DATA.sections.reduce(
+                (acc, s) => acc + s.lectures.length,
+                0
+              )}{" "}
+              lectures
             </p>
           </div>
 
