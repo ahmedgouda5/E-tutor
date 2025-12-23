@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Heading from './heading'
 import Link from 'next/link'
 import { useTranslation } from 'react-i18next';
+import "@/app/i18n/client";
 
 const BestSelling = ({ className }: { className?: string }) => {
     const { t } = useTranslation();

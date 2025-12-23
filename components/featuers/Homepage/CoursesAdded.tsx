@@ -5,6 +5,7 @@ import Image from "next/image";
 import { bestSellingCourses } from "@/lib/data";
 import Heading from "@/components/shared/heading";
 import { useTranslation } from "react-i18next";
+import "@/app/i18n/client";
 
 // Type definitions
 type Course = typeof bestSellingCourses[0];

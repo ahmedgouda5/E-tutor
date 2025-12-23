@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 import { useTranslation } from 'react-i18next';
+import "@/app/i18n/client";
 
 const InstructorBanner = ({ className }: { className?: string }) => {
     const { t } = useTranslation();

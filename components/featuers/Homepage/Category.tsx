@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import "../../../app/i18n/client";
 import { useTranslation } from "react-i18next";
+import "@/app/i18n/client";
 
 const Category = () => {
   const { t, i18n } = useTranslation();

@@ -4,6 +4,7 @@ import { coursesFeatured } from "@/lib/data";
 import { BarChart2, Clock, Star, Users } from "lucide-react";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
+import "@/app/i18n/client";
 
 const FeatureCourses = ({ className }: { className?: string }) => {
     const { t } = useTranslation();
