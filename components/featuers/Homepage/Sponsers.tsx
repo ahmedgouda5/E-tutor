@@ -9,7 +9,7 @@ const TrustedCompanies = ({ className }: { className?: string }) => {
   const companies = [
     { id: 1, logo: "/sponsers/netflix.png", name: "Netflix" },
     { id: 2, logo: "/sponsers/youtube.png", name: "YouTube" },
-    { id: 3, logo: "/sponsers/Google.png", name: "Google" },
+    { id: 3, logo: "/sponsers/google.png", name: "Google" },
     { id: 4, logo: "/sponsers/lenovo.png", name: "Lenovo" },
     { id: 5, logo: "/sponsers/slack.png", name: "Slack" },
     { id: 6, logo: "/sponsers/verizon.png", name: "Verizon" },

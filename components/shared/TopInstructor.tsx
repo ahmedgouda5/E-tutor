@@ -20,7 +20,7 @@ const TopInstructor = ({ className }: { className?: string }) => {
             className="border rounded-xl flex flex-col items-center hover:shadow-orange-300 hover:shadow-lg transition-all duration-300 overflow-hidden shadow-sm bg-white"
           >
             <Image
-              priority
+              loading="lazy"
               src={instructor.instrucorImage}
               alt={instructor.name}
               width={200}

@@ -382,7 +382,7 @@ export const AllCourses: ICourse[] = [
     rating: 5.0,
     students: "265.7K",
     image: "/courses/course-1.png",
-    instrucorImage: "/Instructors/Inst1.png",
+    instrucorImage: "/instructors/inst1.png",
     instructorName: "Kevin Gilbert",
     instructorTitle: "Senior Developer",
     instructorBio:
@@ -400,7 +400,7 @@ export const AllCourses: ICourse[] = [
     rating: 5.0,
     students: "265.7K",
     image: "/courses/course-2.png",
-    instrucorImage: "/Instructors/Inst2.png",
+    instrucorImage: "/instructors/inst2.png",
     instructorName: "Devon Lane",
     instructorTitle: "Digital Product Designer",
     instructorBio:
@@ -418,7 +418,7 @@ export const AllCourses: ICourse[] = [
     rating: 5.0,
     students: "265.7K",
     image: "/courses/course-3.png",
-    instrucorImage: "/Instructors/Inst3.png",
+    instrucorImage: "/instructors/inst3.png",
     instructorName: "Jane Cooper",
     instructorTitle: "UI/UX Designer",
     instructorBio:
@@ -436,7 +436,7 @@ export const AllCourses: ICourse[] = [
     rating: 5.0,
     students: "265.7K",
     image: "/courses/course-4.png",
-    instrucorImage: "/Instructors/Inst4.png",
+    instrucorImage: "/instructors/inst4.png",
     instructorName: "Albert Flores",
     instructorTitle: "Adobe Instructor",
     instructorBio:
@@ -454,7 +454,7 @@ export const AllCourses: ICourse[] = [
     rating: 5.0,
     students: "265.7K",
     image: "/courses/course-5.png",
-    instrucorImage: "/Instructors/Inst5.png",
+    instrucorImage: "/instructors/inst5.png",
     instructorName: "Kathryn Murphy",
     instructorTitle: "Lead Developer",
     instructorBio:
@@ -472,7 +472,7 @@ export const AllCourses: ICourse[] = [
     rating: 5.0,
     students: "265.7K",
     image: "/courses/course-6.png",
-    instrucorImage: "/Instructors/Inst1.png",
+    instrucorImage: "/instructors/inst1.png",
     instructorName: "Kathryn Murphy",
     instructorTitle: "Financial Analyst",
     instructorBio:
@@ -490,7 +490,7 @@ export const AllCourses: ICourse[] = [
     rating: 5.0,
     students: "265.7K",
     image: "/courses/course-7.png",
-    instrucorImage: "/Instructors/Inst2.png",
+    instrucorImage: "/instructors/inst2.png",
     instructorName: "Devon Lane",
     instructorTitle: "Financial Modeling Expert",
     instructorBio:
@@ -508,7 +508,7 @@ export const AllCourses: ICourse[] = [
     rating: 5.0,
     students: "265.7K",
     image: "/courses/course-8.png",
-    instrucorImage: "/Instructors/Inst3.png",
+    instrucorImage: "/instructors/inst3.png",
     instructorName: "Jane Cooper",
     instructorTitle: "Python Developer",
     instructorBio:
@@ -526,7 +526,7 @@ export const AllCourses: ICourse[] = [
     rating: 5.0,
     students: "265.7K",
     image: "/courses/course-9.png",
-    instrucorImage: "/Instructors/Inst4.png",
+    instrucorImage: "/instructors/inst4.png",
     instructorName: "Albert Flores",
     instructorTitle: "Professional Copywriter",
     instructorBio:
@@ -544,7 +544,7 @@ export const AllCourses: ICourse[] = [
     rating: 5.0,
     students: "265.7K",
     image: "/courses/course-10.png",
-    instrucorImage: "/Instructors/Inst5.png",
+    instrucorImage: "/instructors/inst5.png",
     instructorName: "Kathryn Murphy",
     instructorTitle: "Analytics Expert",
     instructorBio:
