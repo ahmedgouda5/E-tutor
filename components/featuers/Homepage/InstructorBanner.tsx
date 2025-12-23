@@ -51,7 +51,7 @@ const InstructorBanner = ({ className }: { className?: string }) => {
                 </div>
 
                 <Image
-                    src="/Instructors/Inst1.png"
+                    src="/instructors/inst1.png"
                     alt="instructor-banner"
                     width={220}
                     height={220}
