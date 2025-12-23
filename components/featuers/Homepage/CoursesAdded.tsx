@@ -4,7 +4,7 @@ import { Heart, Clock, Users, BarChart3 } from "lucide-react";
 import Image from "next/image";
 import { bestSellingCourses } from "@/lib/data";
 import Heading from "@/components/shared/heading";
-import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 
 // Type definitions
 type Course = typeof bestSellingCourses[0];
@@ -148,6 +148,7 @@ const CourseCard: React.FC<CourseCardProps> = ({
 
 // RecentlyAddedCourses Component
 const RecentlyAddedCourses: React.FC<{ className?: string }> = ({ className }) => {
+  const { t } = useTranslation();
   const [isHovered, setIsHovered] = useState<number | null>(null);
   const [favorites, setFavorites] = useState<{ [key: string]: boolean }>({});
 
