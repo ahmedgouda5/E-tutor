@@ -19,15 +19,14 @@ const TopInstructor = ({ className }: { className?: string }) => {
             key={instructor.id}
             className="border rounded-xl flex flex-col items-center hover:shadow-orange-300 hover:shadow-lg transition-all duration-300 overflow-hidden shadow-sm bg-white"
           >
-           <Image
-  loading="lazy"
-  src={instructor.instructorImage|| "public/instructors/inst9.png"}
-  alt={instructor.name}
-  width={200}
-  height={200}
-  className="w-full h-[200px] object-cover"
- />
-
+            <Image
+              loading="lazy"
+              src={instructor.instructorImage || "/instructors/inst9.png"}
+              alt={instructor.name}
+              width={200}
+              height={200}
+              className="w-full h-[200px] object-cover"
+            />
 
             <div className="text-center px-3 py-2 h-[100px]">
               <h3 className="text-lg font-semibold">{instructor.name}</h3>
@@ -45,9 +44,11 @@ const TopInstructor = ({ className }: { className?: string }) => {
         ))}
       </div>
       <div className="text-center my-7 flex items-center gap-2 justify-center">
-        <h3>{t(
-          "Thousands of students waiting for a instructor. Start teaching & earning now!."
-        )}</h3>
+        <h3>
+          {t(
+            "Thousands of students waiting for a instructor. Start teaching & earning now!."
+          )}
+        </h3>
         <Link
           className="text-orange-500 inline-flex items-center gap-1 font-medium"
           href="#"
