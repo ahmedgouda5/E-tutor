@@ -32,7 +32,7 @@ export default function StuMessage({ title }: { title: string }) {
                 onClick={() => setUser(instructor.id)}
               >
                 <Image
-                  src={instructor.instrucorImage}
+                  src={instructor.instructorImage}
                   alt={instructor.name}
                   width={40}
                   height={40}
@@ -50,7 +50,7 @@ export default function StuMessage({ title }: { title: string }) {
         <div className="h-16 bg-white border-b flex items-center px-6">
           <div className="flex items-center gap-2">
             <Image
-              src={GetUserData?.instrucorImage ?? "/placeholder-avatar.png"}
+              src={GetUserData?.instructorImage ?? "/placeholder-avatar.png"}
               alt={GetUserData?.name ?? "Instructor"}
               width={40}
               height={40}
