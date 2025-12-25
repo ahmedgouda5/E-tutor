@@ -2,7 +2,6 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
@@ -17,7 +16,7 @@ const nextConfig: NextConfig = {
         pathname: "/**",
       },
     ],
-  }, // خلّيه false عشان optimization يشتغل
+  },
 };
 
 export default nextConfig;
