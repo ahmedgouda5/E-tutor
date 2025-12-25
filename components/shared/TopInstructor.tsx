@@ -14,14 +14,14 @@ const TopInstructor = ({ className }: { className?: string }) => {
       <Heading heading={t("Top Instructor In the Month")} />
 
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 ">
-        {TopInstructorData.slice(5, 9).map((instructor) => (
+        {TopInstructorData.slice(0, 4).map((instructor) => (
           <div
             key={instructor.id}
             className="border rounded-xl flex flex-col items-center hover:shadow-orange-300 hover:shadow-lg transition-all duration-300 overflow-hidden shadow-sm bg-white"
           >
             <Image
               loading="lazy"
-              src={"/instructors/inst9.png"}
+              src={instructor.instructorImage}
               alt={instructor.name}
               width={200}
               height={200}

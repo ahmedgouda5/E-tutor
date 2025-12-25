@@ -283,7 +283,7 @@ export const TopInstructorData = [
   {
     id: 1,
     name: "Kevin Gilbert",
-    instructorImage: "/instructors/inst1.png",
+    instructorImage: "/instructors/instructorone.png",
     title: "Senior Developer",
     rating: 4.6,
     students: 534,
@@ -291,7 +291,7 @@ export const TopInstructorData = [
   {
     id: 2,
     name: "Devon Lane",
-    instructorImage: "/instructors/inst2.png",
+    instructorImage: "/instructors/instructortwo.png",
     title: "Digital Product Designer",
     rating: 4.9,
     students: 1133,
@@ -299,7 +299,7 @@ export const TopInstructorData = [
   {
     id: 3,
     name: "Jane Cooper",
-    instructorImage: "/instructors/inst3.png",
+    instructorImage: "/instructors/instructorthree.png",
     title: "UI / UX Designer",
     rating: 4.8,
     students: 5671,
@@ -307,7 +307,7 @@ export const TopInstructorData = [
   {
     id: 4,
     name: "Albert Flores",
-    instructorImage: "/instructors/inst4.png",
+    instructorImage: "/instructors/instructorfour.png",
     title: "Adobe Instructor",
     rating: 4.7,
     students: 7123,
@@ -315,7 +315,7 @@ export const TopInstructorData = [
   {
     id: 5,
     name: "Kathryn Murphy",
-    instructorImage: "/instructors/inst5.png",
+    instructorImage: "/instructors/instructorfive.png",
     title: "Lead Developer",
     rating: 4.2,
     students: 2711,
@@ -323,7 +323,7 @@ export const TopInstructorData = [
   {
     id: 6,
     name: "Brooklyn Simmons",
-    instructorImage: "/instructors/inst6.png",
+    instructorImage: "/instructors/instructorsix.png",
     title: "Frontend Engineer",
     rating: 4.5,
     students: 3890,
@@ -331,7 +331,7 @@ export const TopInstructorData = [
   {
     id: 7,
     name: "Courtney Henry",
-    instructorImage: "/instructors/inst7.png",
+    instructorImage: "/instructors/instructorseven.png",
     title: "Backend Engineer",
     rating: 4.4,
     students: 4120,
@@ -339,18 +339,10 @@ export const TopInstructorData = [
   {
     id: 8,
     name: "Eleanor Pena",
-    instructorImage: "/instructors/inst8.png",
+    instructorImage: "/instructors/instructoreight.png",
     title: "Full Stack Developer",
     rating: 4.3,
     students: 3560,
-  },
-  {
-    id: 9,
-    name: "Guy Hawkins",
-    instructorImage: "/instructors/inst9.png",
-    title: "Mobile App Instructor",
-    rating: 4.1,
-    students: 1980,
   },
 ];
 
