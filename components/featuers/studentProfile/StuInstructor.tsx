@@ -17,7 +17,7 @@ const StuInstructor = ({ title }: { title: string }) => {
             >
               <Image
                 priority
-                src={instructor.instrucorImage}
+                src={instructor.instructorImage}
                 alt={instructor.name}
                 width={200}
                 height={200}
