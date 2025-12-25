@@ -283,7 +283,7 @@ export const TopInstructorData = [
   {
     id: 1,
     name: "Kevin Gilbert",
-    instrucorImage: "/instructors/inst1.png",
+    instructorImage: "/instructors/inst1.png",
     title: "Senior Developer",
     rating: 4.6,
     students: 534,
@@ -291,7 +291,7 @@ export const TopInstructorData = [
   {
     id: 2,
     name: "Devon Lane",
-    instrucorImage: "/instructors/inst2.png",
+    instructorImage: "/instructors/inst2.png",
     title: "Digital Product Designer",
     rating: 4.9,
     students: 1133,
@@ -299,7 +299,7 @@ export const TopInstructorData = [
   {
     id: 3,
     name: "Jane Cooper",
-    instrucorImage: "/instructors/inst3.png",
+    instructorImage: "/instructors/inst3.png",
     title: "UI / UX Designer",
     rating: 4.8,
     students: 5671,
@@ -307,7 +307,7 @@ export const TopInstructorData = [
   {
     id: 4,
     name: "Albert Flores",
-    instrucorImage: "/instructors/inst4.png",
+    instructorImage: "/instructors/inst4.png",
     title: "Adobe Instructor",
     rating: 4.7,
     students: 7123,
@@ -315,7 +315,7 @@ export const TopInstructorData = [
   {
     id: 5,
     name: "Kathryn Murphy",
-    instrucorImage: "/instructors/inst5.png",
+    instructorImage: "/instructors/inst5.png",
     title: "Lead Developer",
     rating: 4.2,
     students: 2711,
@@ -323,7 +323,7 @@ export const TopInstructorData = [
   {
     id: 6,
     name: "Brooklyn Simmons",
-    instrucorImage: "/instructors/inst6.png",
+    instructorImage: "/instructors/inst6.png",
     title: "Frontend Engineer",
     rating: 4.5,
     students: 3890,
@@ -331,7 +331,7 @@ export const TopInstructorData = [
   {
     id: 7,
     name: "Courtney Henry",
-    instrucorImage: "/instructors/inst7.png",
+    instructorImage: "/instructors/inst7.png",
     title: "Backend Engineer",
     rating: 4.4,
     students: 4120,
@@ -339,7 +339,7 @@ export const TopInstructorData = [
   {
     id: 8,
     name: "Eleanor Pena",
-    instrucorImage: "/instructors/inst8.png",
+    instructorImage: "/instructors/inst8.png",
     title: "Full Stack Developer",
     rating: 4.3,
     students: 3560,
@@ -347,7 +347,7 @@ export const TopInstructorData = [
   {
     id: 9,
     name: "Guy Hawkins",
-    instrucorImage: "/instructors/inst9.png",
+    instructorImage: "/instructors/inst9.png",
     title: "Mobile App Instructor",
     rating: 4.1,
     students: 1980,
