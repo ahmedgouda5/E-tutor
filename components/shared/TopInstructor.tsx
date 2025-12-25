@@ -21,7 +21,7 @@ const TopInstructor = ({ className }: { className?: string }) => {
           >
            <Image
   loading="lazy"
-  src={instructor.instructorImage|| "instructors/inst9.png"}
+  src={instructor.instructorImage|| "public/instructors/inst9.png"}
   alt={instructor.name}
   width={200}
   height={200}
