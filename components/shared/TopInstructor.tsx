@@ -25,7 +25,7 @@ const TopInstructor = ({ className }: { className?: string }) => {
               alt={instructor.name}
               width={200}
               height={200}
-              className="w-full h-[200px] object-cover"
+              className="w-full h-[200px] object-center"
             />
 
             <div className="text-center px-3 py-2 h-[100px]">
