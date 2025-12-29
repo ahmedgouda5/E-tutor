@@ -88,7 +88,6 @@ const FeatureCourses = ({ className }: { className?: string }) => {
                                 </div>
                             </div>
 
-                            {/* Bottom - Stats */}
                             <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-gray-600">
 
                                 <div className="flex items-center gap-1">

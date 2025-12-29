@@ -10,7 +10,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
         <section className="bg-white p-3 sm:p-4 rounded-xl sm:rounded-2xl flex items-center justify-between gap-2 sm:gap-4">
           <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
             <Image
-              src="/Instructors/Inst1.png"
+              src="/instructors/instructorfive.png"
               alt="E-tutor logo"
               className="rounded-full shrink-0"
               width={50}

@@ -217,7 +217,7 @@ export const coursesFeatured = [
     title: "Investing In Stocks The Complete Course! (13 H...",
     image: "/courses/course-4.png",
     instructor: "Kevin Gilbert",
-    instructorImage: "/photo.png",
+    instructorImage: "/instructors/instructorone.png",
     rating: 5.0,
     reviews: "(357,914)",
     students: "265.7K",
@@ -233,7 +233,7 @@ export const coursesFeatured = [
     title: "Google Analytics Certification - Learn How To...",
     image: "/courses/course-6.png",
     instructor: "Kevin Gilbert",
-    instructorImage: "/photo.png",
+    instructorImage: "/instructors/instructorone.png",
 
     rating: 5.0,
     reviews: "(357,914)",
@@ -250,7 +250,7 @@ export const coursesFeatured = [
     title: "Adobe XD for Web Design: Essential Principles",
     image: "/courses/course-9.png",
     instructor: "Kevin Gilbert",
-    instructorImage: "/photo.png",
+    instructorImage: "/instructors/instructorone.png",
 
     rating: 5.0,
     reviews: "(357,914)",
@@ -267,7 +267,7 @@ export const coursesFeatured = [
     title: "The Python Mega Course: Build 10 Real World ...",
     image: "/courses/course-8.png",
     instructor: "Kevin Gilbert",
-    instructorImage: "/photo.png",
+    instructorImage: "/instructors/instructorone.png",
 
     rating: 5.0,
     reviews: "(357,914)",
