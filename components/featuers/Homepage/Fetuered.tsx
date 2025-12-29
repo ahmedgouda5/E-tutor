@@ -74,7 +74,7 @@ const FeatureCourses = ({ className }: { className?: string }) => {
                                             alt={course.instructor}
                                             width={24}
                                             height={24}
-                                            priority
+                                            loading="lazy"
                                             className="rounded-full"
                                         />
                                         <span className="text-sm text-gray-600">{course.instructor}</span>

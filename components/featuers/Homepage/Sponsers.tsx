@@ -7,14 +7,11 @@ const TrustedCompanies = ({ className }: { className?: string }) => {
   const { t } = useTranslation();
 
   const companies = [
-    { id: 1, logo: "/sponsers/netflix.png", name: "Netflix" },
     { id: 2, logo: "/sponsers/youtube.png", name: "YouTube" },
-    { id: 3, logo: "/sponsers/google.png", name: "Google" },
     { id: 4, logo: "/sponsers/lenovo.png", name: "Lenovo" },
     { id: 5, logo: "/sponsers/slack.png", name: "Slack" },
     { id: 6, logo: "/sponsers/verizon.png", name: "Verizon" },
     { id: 7, logo: "/sponsers/lexmark.png", name: "Lexmark" },
-    { id: 8, logo: "/sponsers/microsoft.png", name: "Microsoft" },
   ];
 
   return (
@@ -42,7 +39,7 @@ const TrustedCompanies = ({ className }: { className?: string }) => {
                 alt={c.name}
                 width={120}
                 height={60}
-                priority
+                loading="lazy"
                 className="object-cover"
               />
             </div>
