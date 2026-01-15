@@ -6,12 +6,14 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import React from "react";
 import { useTranslation } from 'react-i18next';
-
+import { motion } from "framer-motion";
 const About = () => {
   const { t } = useTranslation();
   const Pathname = usePathname();
   return (
-    <div className="my-3">
+    <motion.div initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }} className="my-3">
       <nav className="flex justify-center flex-col items-center space-y-3">
         <h3 className="text-4xl font-bold text-gray-900">{t('About')}</h3>
         <span className="capitalize">{Pathname.slice(1, Pathname.length)}</span>
@@ -91,7 +93,7 @@ const About = () => {
           <InfiniteMovingCardsDemo/>
         </section>
       </main>
-    </div>
+    </motion.div>
   );
 };
 

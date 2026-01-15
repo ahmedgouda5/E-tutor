@@ -38,7 +38,7 @@ export const Navabar: INavabar[] = [
   },
   {
     label: "Become an Instructor",
-    href: "/ELearn/become-instructor",
+    href: "/ELearn/instructor",
   },
 ];
 
@@ -374,8 +374,8 @@ export const AllCourses: ICourse[] = [
     rating: 5.0,
     students: "265.7K",
     image: "/courses/course-1.png",
-    instrucorImage: "/instructors/inst1.png",
-    instructorName: "Kevin Gilbert",
+    instrucorImage: "/instructors/instructorone.png",
+    instructorName: "Devon Lane",
     instructorTitle: "Senior Developer",
     instructorBio:
       "Experienced developer with 10+ years in AI and machine learning. Passionate about teaching and helping students achieve their goals.",
@@ -392,7 +392,7 @@ export const AllCourses: ICourse[] = [
     rating: 5.0,
     students: "265.7K",
     image: "/courses/course-2.png",
-    instrucorImage: "/instructors/inst2.png",
+    instrucorImage: "/instructors/instructortwo.png",
     instructorName: "Devon Lane",
     instructorTitle: "Digital Product Designer",
     instructorBio:
@@ -410,7 +410,7 @@ export const AllCourses: ICourse[] = [
     rating: 5.0,
     students: "265.7K",
     image: "/courses/course-3.png",
-    instrucorImage: "/instructors/inst3.png",
+    instrucorImage: "/instructors/instructorthree.png",
     instructorName: "Jane Cooper",
     instructorTitle: "UI/UX Designer",
     instructorBio:
@@ -428,7 +428,7 @@ export const AllCourses: ICourse[] = [
     rating: 5.0,
     students: "265.7K",
     image: "/courses/course-4.png",
-    instrucorImage: "/instructors/inst4.png",
+    instrucorImage: "/instructors/instructorfour.png",
     instructorName: "Albert Flores",
     instructorTitle: "Adobe Instructor",
     instructorBio:
@@ -446,7 +446,7 @@ export const AllCourses: ICourse[] = [
     rating: 5.0,
     students: "265.7K",
     image: "/courses/course-5.png",
-    instrucorImage: "/instructors/inst5.png",
+    instrucorImage: "/instructors/instructorfive.png",
     instructorName: "Kathryn Murphy",
     instructorTitle: "Lead Developer",
     instructorBio:
@@ -464,7 +464,7 @@ export const AllCourses: ICourse[] = [
     rating: 5.0,
     students: "265.7K",
     image: "/courses/course-6.png",
-    instrucorImage: "/instructors/inst1.png",
+    instrucorImage: "/instructors/instructorsix.png",
     instructorName: "Kathryn Murphy",
     instructorTitle: "Financial Analyst",
     instructorBio:
@@ -482,7 +482,7 @@ export const AllCourses: ICourse[] = [
     rating: 5.0,
     students: "265.7K",
     image: "/courses/course-7.png",
-    instrucorImage: "/instructors/inst2.png",
+    instrucorImage: "/instructors/instructorseven.png",
     instructorName: "Devon Lane",
     instructorTitle: "Financial Modeling Expert",
     instructorBio:
@@ -500,7 +500,7 @@ export const AllCourses: ICourse[] = [
     rating: 5.0,
     students: "265.7K",
     image: "/courses/course-8.png",
-    instrucorImage: "/instructors/inst3.png",
+    instrucorImage: "/instructors/instructoreight.png",
     instructorName: "Jane Cooper",
     instructorTitle: "Python Developer",
     instructorBio:
@@ -518,7 +518,7 @@ export const AllCourses: ICourse[] = [
     rating: 5.0,
     students: "265.7K",
     image: "/courses/course-9.png",
-    instrucorImage: "/instructors/inst4.png",
+    instrucorImage: "/instructors/instructorthree.png",
     instructorName: "Albert Flores",
     instructorTitle: "Professional Copywriter",
     instructorBio:
@@ -679,3 +679,22 @@ export const COURSE_DATA = {
     },
   ],
 };
+
+export const reviews = [
+  {
+    id: 1,
+    name: "Ahmed Hassan",
+    time: "2 days ago",
+    rating: 4,
+    comment:
+      "الكورس ممتاز جدًا، الشرح واضح وسهل، والإنستركتور بيبسط المفاهيم بطريقة احترافية. استفدت جدًا خصوصًا من الجزء الخاص بالـ real projects.",
+  },
+  {
+    id: 2,
+    name: "Mariam Adel",
+    time: "1 week ago",
+    rating: 5,
+    comment:
+      "المحتوى مرتب، وفيه أمثلة كتير. حسيت فعلًا إني بقيت فاهمة React بطريقة عملية. Highly recommended 👍",
+  },
+];

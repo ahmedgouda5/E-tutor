@@ -6,6 +6,7 @@ import { bestSellingCourses } from "@/lib/data";
 import Heading from "@/components/shared/heading";
 import { useTranslation } from "react-i18next";
 import "@/app/i18n/client";
+import { motion } from "framer-motion";
 
 // Type definitions
 type Course = typeof bestSellingCourses[0];
@@ -80,7 +81,7 @@ const CourseCard: React.FC<CourseCardProps> = ({
 
       {/* Hover Card */}
       {isHovered === index && (
-        <div className="absolute left-0 top-0 w-80 bg-white rounded-lg shadow-2xl z-50 border border-gray-200 animate-fadeIn">
+        <div className="absolute left-0 top-0 md:w-80 w-60 bg-white rounded-lg shadow-2xl z-50 border border-gray-200 animate-fadeIn">
           <div className="relative">
             <Image
               src={course.image}
@@ -149,6 +150,7 @@ const CourseCard: React.FC<CourseCardProps> = ({
 
 // RecentlyAddedCourses Component
 const RecentlyAddedCourses: React.FC<{ className?: string }> = ({ className }) => {
+
   const { t } = useTranslation();
   const [isHovered, setIsHovered] = useState<number | null>(null);
   const [favorites, setFavorites] = useState<{ [key: string]: boolean }>({});
@@ -158,7 +160,7 @@ const RecentlyAddedCourses: React.FC<{ className?: string }> = ({ className }) =
       <div className="max-w-7xl mx-auto px-4">
         <Heading heading={t("Recently Added Courses")} />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        <motion.div initial={{ y: 200 ,opacity: 0}} whileInView={{ y: 0 ,opacity: 1}} transition={{ duration: 1 ,delay: 0.2 }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {bestSellingCourses.slice(0, 3).map((course, index) => (
             <CourseCard
               key={index}
@@ -170,7 +172,7 @@ const RecentlyAddedCourses: React.FC<{ className?: string }> = ({ className }) =
               setFavorites={setFavorites}
             />
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

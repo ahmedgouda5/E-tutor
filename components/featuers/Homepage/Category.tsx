@@ -6,37 +6,43 @@ import Link from "next/link";
 import "../../../app/i18n/client";
 import { useTranslation } from "react-i18next";
 import "@/app/i18n/client";
+import { motion } from "framer-motion";
 
 const Category = () => {
   const { t, i18n } = useTranslation();
   return (
     <main>
       <Heading heading={t("Browse top category")} />
-      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 ">
+      <div
+        className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 "
+      >
         {categories.map((cat, i) => {
           const Icon = cat.icon;
 
           return (
-            <div
+            <motion.div
               key={i}
-              className="p-5 rounded-xl flex flex-col md:flex-row  items-center gap-4"
-              style={{ backgroundColor: cat.bgColor }}
+              initial={{ scale: 0, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="p-2 rounded-xl flex flex-col md:flex-row  items-center gap-4"
+              style={{ backgroundColor: cat.bgColor } as React.CSSProperties}
             >
               <Icon
                 className="w-8 h-8  bg-white p-1 "
                 style={{ color: cat.bgColor }}
               />
 
-              <div className="flex flex-col items-center md:justify-center  md:items-start">
+              <div className="flex flex-col items-center md:justify-center text-center md:text-left md:items-start">
                 <h3 className="font-semibold ">{cat.name}</h3>
                 <p className="text-sm text-gray-600">{cat.courses}</p>
               </div>
-            </div>
+            </motion.div>
           );
         })}
       </div>
-      <div className="text-center my-7 flex items-center gap-2 justify-center ">
-       <h3>{t("We have more category & subcategory")}</h3>
+      <div className="text-center my-7 flex items-center gap-2 justify-center md:flex-row flex-col ">
+        <h3>{t("We have more category & subcategory")}</h3>
         <Link
           className="text-orange-500 inline-flex items-center gap-1 font-medium"
           href="/ELearn/courses"

@@ -12,9 +12,7 @@ import { AuthStore } from "@/store/AuthStore";
 import { useTranslation } from "react-i18next";
 import { AnimatedTooltip } from "../ui/animated-tooltip";
 
-const InputGroupDemo = dynamic(() => import("../featuers/InputGroupDemo"), {
-  ssr: false,
-});
+
 
 const NavigationMenuDemo = dynamic(
   () => import("../featuers/NavigationMenuDemo"),
@@ -27,10 +25,9 @@ const Navabr = () => {
   const router=useRouter()
   const HandleStudentProfile=useCallback(()=>{
      router.push("/ELearn/student/")
-  },[])
+  },[router])
   const { t } = useTranslation();
   const { formData } = AuthStore();
-  console.log(formData);
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
@@ -71,9 +68,7 @@ const Navabr = () => {
             </h1>
           </Link>
 
-          <div className="hidden md:block">
-            <InputGroupDemo />
-          </div>
+          
         </div>
 
         <div className="flex items-center gap-4">
@@ -82,10 +77,14 @@ const Navabr = () => {
               <Bell />
             </li>
             <li>
+              <Link href="/ELearn/favorites">
               <Heart />
+              </Link>
             </li>
             <li>
+              <Link href="/ELearn/cart">
               <ShoppingCart />
+              </Link>
             </li>
           </ul>
 
@@ -160,10 +159,14 @@ const Navabr = () => {
               <Bell />
             </li>
             <li>
+              <Link href="/ELearn/favorites">
               <Heart />
+              </Link>
             </li>
             <li>
+              <Link href="/ELearn/cart">
               <ShoppingCart />
+              </Link>
             </li>
           </ul>
           <div className="mt-4 flex flex-col gap-2">

@@ -1,21 +1,27 @@
 "use client";
-import React, {  useState } from "react";
+import React, { useCallback, useState } from "react";
 import { Play, Clock, BarChart, Award, Globe, Star, Check } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams, usePathname } from "next/navigation";
-import { AllCourses } from "@/lib/data";
+import { AllCourses, ICourse } from "@/lib/data";
 import Descritption from "@/components/featuers/CourseDetails/descritption";
 import Curriculum from "@/components/featuers/CourseDetails/curriculum";
 import Instructor from "@/components/featuers/CourseDetails/Instructor";
 import Reviews from "@/components/featuers/CourseDetails/Reviews";
+import { UseCartStore } from "@/store/CartStore";
+import toast from "react-hot-toast";
 
 const CourseDetails = () => {
+  const { addToCart } = UseCartStore();
+  const handlerAddToCart = useCallback((course:ICourse) => {
+    addToCart(course);
+    toast.success("Course added to cart");
+  }, [addToCart]);
   const { id } = useParams();
   const [activeTab, setActiveTab] = useState("overview");
   const pathname = usePathname();
   const course = AllCourses.find((course) => course.id === Number(id));
-  console.log(activeTab);
 
   const renderComponent = () => {
     if (!course) return null;
@@ -33,8 +39,6 @@ const CourseDetails = () => {
         return <Descritption course={course} />;
     }
   };
-
-
 
   const courseFeatures = [
     { icon: Clock, text: "3 hrs on-demand video" },
@@ -107,7 +111,12 @@ const CourseDetails = () => {
               </div>
             </div>
 
-            <div className="relative z-0 aspect-video bg-linear-to-br from-pink-300 via-pink-200 to-yellow-100 rounded-xl overflow-hidden">
+            <div
+              className="relative z-0 aspect-video rounded-xl overflow-hidden
+               bg-cover bg-center
+                bg-linear-to-br from-pink-300 via-pink-200 to-yellow-100"
+              style={{ backgroundImage: `url(${course?.image})` }}
+            >
               <div className="absolute inset-0 flex items-center justify-center">
                 <button className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
                   <Play
@@ -255,9 +264,8 @@ const CourseDetails = () => {
                   </div>
                 </div>
 
-                {/* Buttons */}
                 <div className="space-y-3">
-                  <button className="w-full py-3 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 transition-colors">
+                  <button onClick={() => course && handlerAddToCart(course)} className="w-full py-3 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 transition-colors">
                     Add to Cart
                   </button>
                   <Link href={`/ELearn/courses/${id}/checkout`}>

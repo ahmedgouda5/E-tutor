@@ -6,7 +6,7 @@ import { Mail } from "lucide-react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useTranslation } from 'react-i18next';
-
+import { motion } from "framer-motion";
 const Contact = () => {
   const { t } = useTranslation();
   const data = [
@@ -29,7 +29,9 @@ const Contact = () => {
   ];
   const Pathname = usePathname();
   return (
-    <div className="my-6">
+    <motion.div initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }} className="my-6">
       <nav className="flex justify-center flex-col items-center space-y-3">
         <h3 className="text-4xl font-bold text-gray-900">{t('About')}</h3>
         <span className="capitalize">{Pathname.slice(1, Pathname.length)}</span>
@@ -86,7 +88,7 @@ const Contact = () => {
           <ContactForm />
         </section>
       </main>
-    </div>
+    </motion.div>
   );
 };
 

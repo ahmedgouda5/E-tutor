@@ -5,7 +5,7 @@ import { ListFilterPlus, Search } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useMemo } from "react";
-
+import { motion } from "framer-motion";
 const Courses = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [sortBy, setSortBy] = useState("default");
@@ -51,7 +51,9 @@ const Courses = () => {
   }, [searchQuery, sortBy]);
 
   return (
-    <main className="md:px-[100px] px-[20px] md:py-7 py-5 space-y-7">
+    <motion.main initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }} className="md:px-[100px] px-[20px] md:py-7 py-5 space-y-7">
       <nav className="flex items-center md:gap-4 gap-2">
         <div className="flex items-center gap-2 rounded-lg border-2 px-4 py-1 cursor-pointer hover:bg-gray-50">
           <ListFilterPlus size={17} />
@@ -129,7 +131,7 @@ const Courses = () => {
           </div>
         )}
       </section>
-    </main>
+    </motion.main>
   );
 };
 

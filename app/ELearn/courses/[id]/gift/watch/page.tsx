@@ -31,7 +31,6 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
             <h1 className="text-2xl font-bold mb-2">{course?.title}</h1>
             <p className="text-gray-600 mb-4">{COURSE_DATA.title}</p>
 
-            {/* Tabs */}
             <div className="border-b border-gray-200 mb-6">
               <div className="flex gap-6">
                 <button className="pb-3 border-b-2 border-orange-500 text-orange-500 font-semibold">

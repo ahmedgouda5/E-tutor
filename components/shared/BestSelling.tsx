@@ -5,14 +5,15 @@ import Heading from './heading'
 import Link from 'next/link'
 import { useTranslation } from 'react-i18next';
 import "@/app/i18n/client";
+import { motion } from "framer-motion";
 
 const BestSelling = ({ className }: { className?: string }) => {
     const { t } = useTranslation();
     return (
-        <main className={className}>
+        <main  className={className}>
             < Heading heading={t("Best Selling Courses")} />
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <motion.div initial={{ y: 200,opacity: 0 }} whileInView={{ y: 0,opacity: 1 }} transition={{ duration: 1 ,delay: 0.2 }} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
                 {bestSellingCourses.slice(0, 4).map((course, i) => (
                   <Link key={i} href={`/ELearn/courses/${course.id}`}>
                       <div key={i} className="border rounded-xl overflow-hidden shadow-sm h-[330px]">
@@ -34,7 +35,7 @@ const BestSelling = ({ className }: { className?: string }) => {
                     </div>
                   </Link>
                 ))}
-            </div>
+            </motion.div>
         </main>
     )
 }

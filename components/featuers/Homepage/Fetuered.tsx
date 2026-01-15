@@ -5,6 +5,7 @@ import { BarChart2, Clock, Star, Users } from "lucide-react";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import "@/app/i18n/client";
+import { motion } from "framer-motion";
 
 const FeatureCourses = ({ className }: { className?: string }) => {
     const { t } = useTranslation();
@@ -23,7 +24,7 @@ const FeatureCourses = ({ className }: { className?: string }) => {
             </div>
 
             {/* Course Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
+            <motion.div initial={{ y: 100 }} whileInView={{ y: 0 }} transition={{ duration: 1 ,delay: 0.2 }} className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
                 {coursesFeatured.map((course) => (
                     <div
                         key={course.id}
@@ -109,7 +110,7 @@ const FeatureCourses = ({ className }: { className?: string }) => {
                         </div>
                     </div>
                 ))}
-            </div>
+            </motion.div>
         </div>
     );
 };

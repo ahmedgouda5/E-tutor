@@ -6,6 +6,7 @@ import Image from "next/image";
 import { ArrowLeft, ArrowRight, Star } from "lucide-react";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
 
 const TopInstructor = ({ className }: { className?: string }) => {
   const { t, i18n } = useTranslation();
@@ -13,7 +14,7 @@ const TopInstructor = ({ className }: { className?: string }) => {
     <main className={`my-7 border shadow-lg p-2 rounded-xl ${className || ""}`}>
       <Heading heading={t("Top Instructor In the Month")} />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 ">
+      <motion.div initial={{ y: 200 ,opacity: 0}} whileInView={{ y: 0 ,opacity: 1}} transition={{ duration: 1 ,delay: 0.2 }} className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 ">
         {TopInstructorData.slice(0, 4).map((instructor) => (
           <div
             key={instructor.id}
@@ -25,7 +26,7 @@ const TopInstructor = ({ className }: { className?: string }) => {
               alt={instructor.name}
               width={200}
               height={200}
-              className="w-full h-[200px] object-center"
+              className="w-full h-full object-cover"
             />
 
             <div className="text-center px-3 py-2 h-[100px]">
@@ -42,8 +43,8 @@ const TopInstructor = ({ className }: { className?: string }) => {
             </div>
           </div>
         ))}
-      </div>
-      <div className="text-center my-7 flex items-center gap-2 justify-center">
+      </motion.div>
+      <div className="text-center my-7 flex items-center gap-2 md:flex-row flex-col justify-center">
         <h3>
           {t(
             "Thousands of students waiting for a instructor. Start teaching & earning now!."
