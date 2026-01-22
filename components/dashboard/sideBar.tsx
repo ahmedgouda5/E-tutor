@@ -1,44 +1,54 @@
 "use client";
 import React, { useState } from "react";
 import { Sidebar, SidebarBody, SidebarLink } from "../ui/sidebar";
-import {
-  IconArrowLeft,
-  IconBrandTabler,
-  IconSettings,
-  IconUserBolt,
-} from "@tabler/icons-react";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import {
+  BookCheck,
+  CirclePlus,
+  CreditCard,
+  LayoutDashboard,
+  Settings,
+} from "lucide-react";
+import Footer from "./shared/footer";
+import Navbar from "./shared/Navbar";
 
 export function SidebarDemo({ children }: { children: React.ReactNode }) {
   const links = [
     {
       label: "Dashboard",
-      href: "#",
+      href: "/Dashboard",
       icon: (
-        <IconBrandTabler className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
+        <LayoutDashboard className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
     {
-      label: "Profile",
-      href: "#",
+      label: "Create New Course",
+      href: "Dashboard/Newcourse",
       icon: (
-        <IconUserBolt className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
+        <CirclePlus className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
+      ),
+    },
+    {
+      label: "My Courses",
+      href: "Dashboard/mycourses",
+      icon: (
+        <BookCheck className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
+      ),
+    },
+    {
+      label: "Earning",
+      href: "Dashboard/Earning",
+      icon: (
+        <CreditCard className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
     {
       label: "Settings",
-      href: "#",
+      href: "Dashboard/Settings",
       icon: (
-        <IconSettings className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
-      ),
-    },
-    {
-      label: "Logout",
-      href: "#",
-      icon: (
-        <IconArrowLeft className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
+        <Settings className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
   ];
@@ -46,11 +56,11 @@ export function SidebarDemo({ children }: { children: React.ReactNode }) {
   return (
     <div
       className={cn(
-        "mx-auto flex flex-col md:flex-row w-full max-w-7xl flex-1 md:h-screen bg-neutral-50 md:overflow-hidden border border-neutral-200 dark:border-neutral-700 dark:bg-neutral-800"
+        "mx-auto flex flex-col md:flex-row w-full max-w-7xl  flex-1 md:h-screen  md:overflow-hidden border border-neutral-200 dark:border-neutral-700 "
       )}
     >
       <Sidebar open={open} setOpen={setOpen}>
-        <SidebarBody className="justify-between gap-10  ">
+        <SidebarBody className="justify-between gap-10 bg-neutral-50  ">
           <div className="flex flex-1 flex-col  h-full">
             {open ? <Logo /> : <LogoIcon />}
             <div className="mt-8 flex flex-col gap-2 ">
@@ -120,26 +130,11 @@ export const LogoIcon = () => {
 export const Dashboard = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="flex flex-1 flex-col bg-neutral-50 dark:bg-neutral-900">
-      <div className="flex items-center justify-between border-b px-6 py-4 dark:border-neutral-800">
-        <h1 className="text-xl font-semibold">Dashboard</h1>
-
-        <div className="flex items-center gap-4">
-          <div className="text-right">
-            <p className="text-sm font-medium">Ahmed Gouda</p>
-            <p className="text-xs text-neutral-500">Frontend Developer</p>
-          </div>
-
-          <Image
-            src="/instructors/instructorfive.png"
-            width={40}
-            height={40}
-            className="rounded-full border"
-            alt="User"
-          />
-        </div>
+      <Navbar />
+      <div className="flex-1 overflow-y-auto p-6 bg-neutral-100 ">
+        {children}
       </div>
-
-      <div className="flex-1 overflow-y-auto p-6 ">{children}</div>
+      <Footer />
     </div>
   );
 };

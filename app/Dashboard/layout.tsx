@@ -1,17 +1,14 @@
-import React from 'react'
-import { SidebarDemo } from '@/components/dashboard/sideBar'
+import React from "react";
+import { SidebarDemo } from "@/components/dashboard/sideBar";
 
-const layout = ({children}: {children: React.ReactNode}) => {
+const layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
-   <div className='bg-amber-200'>
-     <SidebarDemo>
+      <div>
+        <SidebarDemo>{children}</SidebarDemo>
+      </div>
+    </>
+  );
+};
 
-        {children}
-    </SidebarDemo>
-   </div>
-   </>
-  )
-}
-
-export default layout
+export default layout;
