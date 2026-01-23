@@ -13,7 +13,7 @@ const BestSelling = ({ className }: { className?: string }) => {
         <main  className={className}>
             < Heading heading={t("Best Selling Courses")} />
 
-            <motion.div initial={{ y: 200,opacity: 0 }} whileInView={{ y: 0,opacity: 1 }} transition={{ duration: 1 ,delay: 0.2 }} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <motion.div initial={{ y: 100,opacity: 0 }} whileInView={{ y: 0,opacity: 1 }} transition={{ duration: 1 ,delay: 0.2 }} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
                 {bestSellingCourses.slice(0, 4).map((course, i) => (
                   <Link key={i} href={`/ELearn/courses/${course.id}`}>
                       <div key={i} className="border rounded-xl overflow-hidden shadow-sm h-[330px]">

@@ -73,11 +73,12 @@ const Navabr = () => {
 
         <div className="flex items-center gap-4">
           <ul className="hidden md:flex gap-4 items-center">
-            <li>
+            <li className="relative group">
               <Bell />
+              <div className="  hidden group-hover:block absolute top-6 right-0 text-xs text-white bg-orange-500 rounded-full px-4 py-1 w-32 text-center">no notifications</div>
             </li>
             <li>
-              <Link href="/ELearn/favorites">
+              <Link href="/ELearn/Faviorites">
               <Heart />
               </Link>
             </li>
@@ -159,7 +160,7 @@ const Navabr = () => {
               <Bell />
             </li>
             <li>
-              <Link href="/ELearn/favorites">
+              <Link href="/ELearn/Faviorites">
               <Heart />
               </Link>
             </li>

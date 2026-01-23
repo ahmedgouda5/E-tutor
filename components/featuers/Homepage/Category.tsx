@@ -23,7 +23,7 @@ const Category = () => {
             <motion.div
               key={i}
               initial={{ scale: 0, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
+              whileInView={{ scale: .7, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               className="p-2 rounded-xl flex flex-col md:flex-row  items-center gap-4"
               style={{ backgroundColor: cat.bgColor } as React.CSSProperties}

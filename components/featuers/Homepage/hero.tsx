@@ -29,14 +29,16 @@ const Hero = () => {
         </Button>
       </section>
 
-      <section className="hidden md:flex">
-        <Image
-          src="/Hero.webp"
+      <section className="hidden md:flex mt-2">
+       <div className="bg-orange-400 overflow-hidden border-2 border-orange-600" style={{borderRadius:"51% 49% 46% 54% / 37% 32% 68% 63%"}}>
+         <Image
+          src="/Hero.png"
           alt="E-tutor hero section"
-          width={1420}
-          height={500}
+          width={500}
+          height={400}
           priority
         />
+       </div>
       </section>
     </main>
   );

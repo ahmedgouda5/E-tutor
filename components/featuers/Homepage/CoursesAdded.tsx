@@ -160,7 +160,7 @@ const RecentlyAddedCourses: React.FC<{ className?: string }> = ({ className }) =
       <div className="max-w-7xl mx-auto px-4">
         <Heading heading={t("Recently Added Courses")} />
 
-        <motion.div initial={{ y: 200 ,opacity: 0}} whileInView={{ y: 0 ,opacity: 1}} transition={{ duration: 1 ,delay: 0.2 }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        <motion.div initial={{ y: 100 ,opacity: 0}} whileInView={{ y: 0 ,opacity: 1}} transition={{ duration: 1 ,delay: 0.2 }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {bestSellingCourses.slice(0, 3).map((course, index) => (
             <CourseCard
               key={index}

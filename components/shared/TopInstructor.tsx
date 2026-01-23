@@ -14,7 +14,7 @@ const TopInstructor = ({ className }: { className?: string }) => {
     <main className={`my-7 border shadow-lg p-2 rounded-xl ${className || ""}`}>
       <Heading heading={t("Top Instructor In the Month")} />
 
-      <motion.div initial={{ y: 200 ,opacity: 0}} whileInView={{ y: 0 ,opacity: 1}} transition={{ duration: 1 ,delay: 0.2 }} className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 ">
+      <motion.div initial={{ y: 50 ,opacity: 0}} whileInView={{ y: 0 ,opacity: 1}} transition={{ duration: 1 ,delay: 0.2 }} className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 ">
         {TopInstructorData.slice(0, 4).map((instructor) => (
           <div
             key={instructor.id}

@@ -10,10 +10,12 @@ import Curriculum from "@/components/featuers/CourseDetails/curriculum";
 import Instructor from "@/components/featuers/CourseDetails/Instructor";
 import Reviews from "@/components/featuers/CourseDetails/Reviews";
 import { UseCartStore } from "@/store/CartStore";
+import { useFavioritesStore } from "@/store/FavioritesStore";
 import toast from "react-hot-toast";
 
 const CourseDetails = () => {
   const { addToCart } = UseCartStore();
+  const { addFaviorite } = useFavioritesStore();
   const handlerAddToCart = useCallback((course:ICourse) => {
     addToCart(course);
     toast.success("Course added to cart");
@@ -277,9 +279,9 @@ const CourseDetails = () => {
 
                 <div className="space-y-3 pt-4">
                   <div className="flex  justify-evenly text-sm">
-                    <span className="text-white p-2 rounded-2xl bg-orange-500 hover:bg-orange-600 cursor-pointer">
+                    <button onClick={() => course && addFaviorite(course)} className="text-white p-2 rounded-2xl bg-orange-500 hover:bg-orange-600 cursor-pointer">
                       Add to Wishlist
-                    </span>
+                    </button>
                     <Link
                       href={`/ELearn/courses/${id}/gift`}
                       className="text-white p-2 rounded-2xl bg-orange-500 hover:bg-orange-600 cursor-pointer"
