@@ -1,14 +1,18 @@
-import React from "react";
-import { SidebarDemo } from "@/components/dashboard/sideBar";
+import DashboardSideBar from "@/components/dashboard/shared/dashboardSideBar";
+import React, { ReactNode } from "react";
 
-const layout = ({ children }: { children: React.ReactNode }) => {
+interface LayoutProps {
+  children: ReactNode;
+}
+
+const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <>
-      <div>
-        <SidebarDemo>{children}</SidebarDemo>
-      </div>
-    </>
+    <div>
+      <DashboardSideBar>
+        {children}
+      </DashboardSideBar>
+    </div>
   );
 };
 
-export default layout;
+export default Layout;

@@ -39,6 +39,7 @@ const Navabr = () => {
             <li key={href}>
               <Link
                 href={href}
+                prefetch={true}
                 className={`transition-colors duration-200 ${
                   pathname === href
                     ? "text-orange-500 font-semibold"
@@ -137,7 +138,7 @@ const Navabr = () => {
               <li key={href}>
                 <Link
                   href={href}
-                  prefetch
+                  prefetch={true}
                   onClick={() => setOpen(false)}
                   className={`block py-2 ${
                     pathname === href

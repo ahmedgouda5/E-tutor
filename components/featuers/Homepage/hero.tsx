@@ -30,12 +30,13 @@ const Hero = () => {
       </section>
 
       <section className="hidden md:flex mt-2">
-       <div className="bg-orange-400 overflow-hidden border-2 border-orange-600" style={{borderRadius:"51% 49% 46% 54% / 37% 32% 68% 63%"}}>
+       <div className="overflow-hidden ">
          <Image
           src="/Hero.png"
           alt="E-tutor hero section"
-          width={500}
-          height={400}
+          width={600}
+          height={600}
+          className="object-cover"
           priority
         />
        </div>
