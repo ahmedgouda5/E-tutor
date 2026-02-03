@@ -42,7 +42,7 @@ const data: SidebarItem[] = [
   },
   {
     title: "My Courses",
-    url: "/Dashboard/mycourses",
+    url: "/Dashboard/Mycourses",
     icon: BookCheck,
   },
   {
@@ -100,6 +100,7 @@ const Logo = () => {
         width={28}
         height={28}
         alt="Logo"
+        priority
       />
       <span
         className="font-medium text-black dark:text-white"

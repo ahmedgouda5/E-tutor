@@ -389,7 +389,7 @@ export const AllCourses: ICourse[] = [
     price: "$57",
     discount: 56,
     title: "The Complete 2021 Web Development Bootcamp",
-    rating: 5.0,
+    rating: 4.9,
     students: "265.7K",
     image: "/courses/course-2.png",
     instrucorImage: "/instructors/instructortwo.png",

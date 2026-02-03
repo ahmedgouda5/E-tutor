@@ -1,5 +1,5 @@
-import Image from "next/image";
 import SignUpForm from "@/components/featuers/Auth/SignUpForm";
+import Image from "next/image";
 
 const SignUp = () => {
   return (

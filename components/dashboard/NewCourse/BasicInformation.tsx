@@ -1,5 +1,5 @@
 import React from 'react'
-import { CourseForm } from './UI/course-form'
+import { CourseForm } from '../UI/course-form'
 import { motion } from 'framer-motion'
 
 const BasicInformation = () => {

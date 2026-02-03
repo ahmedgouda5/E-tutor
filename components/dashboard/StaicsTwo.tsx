@@ -57,7 +57,7 @@ export default function StaicsTwo() {
   return (
     <div className="grid gap-6 md:grid-cols-2 ">
       {/* Overall Course Rating Card */}
-      <Card className="w-full">
+      <Card className="w-full overflow-hidden">
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4">
           <CardTitle className="text-base font-semibold">
             Overall Course Rating

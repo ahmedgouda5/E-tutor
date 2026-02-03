@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { metadata as siteMetadata } from "@/lib/Metadata";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -9,7 +8,14 @@ const inter = Inter({
   display: "swap"
 });
 
-export const metadata: Metadata = siteMetadata;
+export const metadata: Metadata = {
+  title: "E-Tutor",
+  description: "E-Tutor - platform for online learning and teaching ",
+  icons: {
+    icon: "/GraduationCap.webp",
+  },
+};
+
 
 export default function RootLayout({
   children,
