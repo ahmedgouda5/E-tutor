@@ -1,8 +1,9 @@
-import { redirect } from "next/navigation";
-
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
+import HomeCard from "@/components/featuers/Homepage/HomeCard";
 
 export default function Home() {
-  redirect("/ELearn");
+  return (
+    <main>
+      <HomeCard />
+    </main>
+  );
 }

@@ -8,7 +8,6 @@ const eslintConfig = defineConfig([
   globalIgnores([".next/**", "out/**", "build/**", "next-env.d.ts"]),
   {
     rules: {
-      "no-console": "error",
       "no-debugger": "error",
       "no-alert": "error",
     },

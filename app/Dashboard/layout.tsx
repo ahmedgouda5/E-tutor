@@ -1,4 +1,5 @@
 import DashboardSideBar from "@/components/dashboard/shared/dashboardSideBar";
+import DashboardAuthProvider from "@/providers/DahsboardAuthProvider";
 import React, { ReactNode } from "react";
 
 interface LayoutProps {
@@ -7,11 +8,13 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div>
-      <DashboardSideBar>
-        {children}
-      </DashboardSideBar>
-    </div>
+    <DashboardAuthProvider>
+      <div>
+        <DashboardSideBar>
+          {children}
+        </DashboardSideBar>
+      </div>
+    </DashboardAuthProvider>
   );
 };
 

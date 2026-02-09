@@ -11,12 +11,13 @@ import {
   Handshake,
   type LucideIcon,
 } from "lucide-react";
+import Link from "next/link";
 
 // Icon components extracted for better performance
 const StepIcon = memo(
   ({ Icon, className }: { Icon: LucideIcon; className: string }) => (
     <Icon className={className} size={24} />
-  )
+  ),
 );
 StepIcon.displayName = "StepIcon";
 
@@ -95,7 +96,7 @@ const HeroSection = memo(() => (
         countries.
       </p>
       <button className="bg-orange-500 hover:bg-orange-600 transition-colors text-white px-6 py-3 rounded font-medium">
-        Get Started
+        <Link href="/Dashboard/">Get Started</Link>
       </button>
     </div>
     <div className="order-1 md:order-2 flex justify-center">
@@ -262,7 +263,7 @@ const FooterSection = memo(() => (
         countries.
       </p>
       <button className="bg-orange-500 hover:bg-orange-600 transition-colors text-white px-6 py-3 rounded font-medium">
-        Register Now
+        <Link href="/Dashboard/Auth/Signup">Register Now</Link>
       </button>
     </div>
     <div className="order-1 md:order-2 flex justify-center">
@@ -285,7 +286,7 @@ const Page = () => {
 
   const breadcrumb = useMemo(
     () => pathname.slice(1, pathname.length),
-    [pathname]
+    [pathname],
   );
 
   return (
