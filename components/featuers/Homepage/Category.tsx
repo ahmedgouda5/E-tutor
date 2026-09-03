@@ -28,13 +28,13 @@ const Category = () => {
               style={{ backgroundColor: cat.bgColor } as React.CSSProperties}
             >
               <Icon
-                className="w-8 h-8  bg-white p-1 "
+                className="w-8 h-8  bg-card p-1 "
                 style={{ color: cat.bgColor }}
               />
 
               <div className="flex flex-col items-center md:justify-center text-center md:text-left md:items-start">
-                <h3 className="font-semibold ">{cat.name}</h3>
-                <p className="text-sm text-gray-600">{cat.courses}</p>
+                <h3 className="font-semibold text-gray-600">{cat.name}</h3>
+                <p className="text-sm text-muted-foreground">{cat.courses}</p>
               </div>
             </motion.div>
           );
@@ -43,7 +43,7 @@ const Category = () => {
       <div className="text-center my-7 flex items-center gap-2 justify-center md:flex-row flex-col ">
         <h3>{t("We have more category & subcategory")}</h3>
         <Link
-          className="text-orange-500 inline-flex items-center gap-1 font-medium"
+          className="text-[#6366F1] inline-flex items-center gap-1 font-medium"
           href="/ELearn/courses"
           prefetch
         >

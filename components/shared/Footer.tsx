@@ -38,7 +38,7 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
             <div className="lg:col-span-1">
               <div className="flex items-center gap-2 mb-4">
-                <div className="bg-orange-500 p-2 rounded-lg">
+                <div className="bg-[#6366F1] p-2 rounded-lg">
                   <GraduationCap className="w-6 h-6" />
                 </div>
                 <span className="text-xl font-bold">E-tutor</span>
@@ -53,7 +53,7 @@ const Footer = () => {
                 <Link href="#" className="bg-gray-800 hover:bg-gray-700 p-2.5 rounded transition-colors">
                   <Instagram className="w-4 h-4" />
                 </Link>
-                <Link href="#" className="bg-orange-500 hover:bg-orange-600 p-2.5 rounded transition-colors">
+                <Link href="#" className="bg-gray-800 hover:bg-[#6366F1] p-2.5 rounded transition-colors">
                   <Linkedin className="w-4 h-4" />
                 </Link>
                 <Link href="#" className="bg-gray-800 hover:bg-gray-700 p-2.5 rounded transition-colors">
@@ -142,7 +142,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-center items-center gap-4">
             <p className="text-gray-400 text-sm">
               © {new Date().getFullYear()} - Eduflex. {t('Designed by')}{' '}
-              <Link href="https://portfolio-two-lemon-69.vercel.app/" className="text-white hover:text-orange-500 transition-colors">
+              <Link href="https://portfolio-two-lemon-69.vercel.app/" className="text-white hover:text-[#818CF8] transition-colors">
                 Goudeawy              </Link>
               . {t('All rights reserved')}
             </p>

@@ -105,10 +105,10 @@ const Courses = () => {
 
                 <div className="p-4">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-bold text-orange-600">
+                    <span className="text-xs font-bold text-[#6366F1]">
                       {course.category}
                     </span>
-                    <span className="text-xs font-bold text-red-500">
+                    <span className="text-xs font-bold text-[#6366F1]">
                       {course.price}
                     </span>
                   </div>

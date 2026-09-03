@@ -1,14 +1,8 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import {
-  BookOpen,
-  Users,
-  BarChart3,
-  Upload,
-  Video,
-  TrendingUp,
-} from "lucide-react";
+import { BookOpen, Video, TrendingUp, Upload, BarChart3, Users, ArrowRight, GraduationCap, PlayCircle, ClipboardCheck, Megaphone } from "lucide-react";
+import { motion } from "motion/react";
 
 interface Feature {
   icon: React.ReactNode;
@@ -17,116 +11,143 @@ interface Feature {
 
 interface CardProps {
   title: string;
+  role: string;
   description: string;
   features: Feature[];
   buttonText: string;
-  buttonVariant: "primary" | "secondary";
   route: string;
+  accent: string;
+  badge?: string;
 }
 
-function Card({
-  title,
-  description,
-  features,
-  buttonText,
-  buttonVariant,
-  route,
-}: CardProps) {
+function Card({ title, role, description, features, buttonText, route, accent, badge }: CardProps) {
   const router = useRouter();
-  const buttonStyles =
-    buttonVariant === "primary"
-      ? "bg-orange-600 text-white hover:bg-orange-700"
-      : "bg-gray-100 text-gray-900 hover:bg-gray-200 border border-gray-300";
 
   return (
-    <article className="bg-white rounded-2xl shadow-lg  p-8 transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:border-blue-200 border border-transparent max-w-md w-full">
-     <nav className="h-[200px]">
-       <h2 className="text-3xl font-bold text-gray-900 mb-4">{title}</h2>
-      <p className="text-gray-600 my-6 leading-relaxed">{description}</p>
-     </nav>
+    <motion.article
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      whileHover={{ y: -4 }}
+      className="group relative flex max-w-md w-full flex-col rounded-2xl border bg-card p-8 shadow-sm transition-all duration-300 hover:shadow-xl"
+    >
+      {badge && (
+        <div className="absolute right-4 top-4">
+          <span className="rounded-full bg-brand/10 px-3 py-1 text-[10px] font-semibold text-brand">
+            {badge}
+          </span>
+        </div>
+      )}
 
-      <ul className="space-y-4 mb-8">
+      <div className="mb-6">
+        <h2 className="text-2xl font-semibold tracking-tight">{title}</h2>
+        <p className="text-xs font-medium text-brand mt-1">{role}</p>
+        <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{description}</p>
+      </div>
+
+      <ul className="space-y-3 mb-8">
         {features.map((feature, index) => (
-          <li key={index} className="flex items-start gap-3">
-            <span className="text-orange-600 mt-1 shrink-0">
+          <motion.li
+            key={index}
+            initial={{ opacity: 0, x: -8 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2 + index * 0.1 }}
+            className="flex items-center gap-3"
+          >
+            <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${accent}`}>
               {feature.icon}
             </span>
-            <span className="text-gray-700">{feature.text}</span>
-          </li>
+            <span className="text-sm text-foreground">{feature.text}</span>
+          </motion.li>
         ))}
       </ul>
 
       <button
         onClick={() => router.push(route)}
-        className={`w-full py-3 px-6 flex rounded-lg font-semibold transition-all duration-200 ${buttonStyles}`}
+        className="mt-auto flex w-full items-center justify-center gap-2 rounded-xl bg-brand py-3 text-sm font-semibold text-brand-foreground transition-all duration-200 hover:bg-brand/90 active:scale-[0.98]"
       >
         {buttonText}
+        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
       </button>
-    </article>
+    </motion.article>
   );
 }
 
 export default function HomeCard() {
   const instructorFeatures: Feature[] = [
-    {
-      icon: <BookOpen size={20} />,
-      text: "Create and manage courses",
-    },
-    {
-      icon: <Upload size={20} />,
-      text: "Upload lessons and assignments",
-    },
-    {
-      icon: <BarChart3 size={20} />,
-      text: "Track students progress",
-    },
+    { icon: <BookOpen size={16} className="text-brand" />, text: "Create and manage courses" },
+    { icon: <Upload size={16} className="text-brand" />, text: "Build curriculum with videos & quizzes" },
+    { icon: <BarChart3 size={16} className="text-brand" />, text: "Track student progress and analytics" },
+    { icon: <ClipboardCheck size={16} className="text-brand" />, text: "Grade assignments and exams" },
   ];
 
   const studentFeatures: Feature[] = [
-    {
-      icon: <Users size={20} />,
-      text: "Enroll in courses",
-    },
-    {
-      icon: <Video size={20} />,
-      text: "Watch lessons",
-    },
-    {
-      icon: <TrendingUp size={20} />,
-      text: "Track your learning progress",
-    },
+    { icon: <GraduationCap size={16} className="text-brand" />, text: "Enroll in premium courses" },
+    { icon: <PlayCircle size={16} className="text-brand" />, text: "Learn with videos and interactive lessons" },
+    { icon: <TrendingUp size={16} className="text-brand" />, text: "Track your progress and achievements" },
+    { icon: <Users size={16} className="text-brand" />, text: "Join study groups and community" },
   ];
 
   return (
-    <main className="min-h-screen bg-linear-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center p-6">
-      <div className="max-w-6xl w-full">
-        <header className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-gray-900 mb-4">
-            Welcome to Learning Platform
+    <main className="relative min-h-screen overflow-hidden bg-background">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -top-32 left-1/4 h-96 w-96 rounded-full bg-brand/5 blur-3xl" />
+        <div className="absolute -bottom-24 right-1/4 h-72 w-72 rounded-full bg-primary/5 blur-3xl" />
+      </div>
+
+      <div className="relative mx-auto flex min-h-screen max-w-6xl flex-col items-center justify-center px-6 py-12">
+        <motion.header
+          initial={{ opacity: 0, y: -12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="mb-12 text-center"
+        >
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border bg-card px-4 py-1.5 text-xs font-medium text-muted-foreground">
+            <span className="h-2 w-2 animate-pulse rounded-full bg-success" />
+            Premium Learning Platform
+          </div>
+          <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
+            Welcome to <span className="text-brand">E-Tutor</span>
           </h1>
-          <p className="text-xl text-gray-600">
-            Choose your role to get started
+          <p className="mt-4 text-lg text-muted-foreground">
+            Are you a Student or Instructor?
           </p>
-        </header>
+        </motion.header>
 
-        <section className="flex flex-col lg:flex-row gap-8 justify-center items-center lg:items-stretch">
-          <Card
-            title="Instructor"
-            description="Empower learners by creating engaging courses, managing content, and tracking student progress in real-time."
-            features={instructorFeatures}
-            buttonText="Go to Dashboard"
-            buttonVariant="primary"
-            route="/Dashboard/Auth/Signin"
-          />
+        <section className="flex w-full flex-col items-center justify-center gap-8 lg:flex-row lg:items-stretch">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="w-full max-w-md flex-1"
+          >
+            <Card
+              title="Student"
+              role="Learner & Community Member"
+              description="Start your learning journey by enrolling in courses, watching lessons, engaging in community, and monitoring your progress."
+              features={studentFeatures}
+              buttonText="Explore E-Learning"
+              route="/ELearn"
+              accent="bg-brand/10"
+            />
+          </motion.div>
 
-          <Card
-            title="Student"
-            description="Start your learning journey by enrolling in courses, watching lessons, and monitoring your progress."
-            features={studentFeatures}
-            buttonText="Go to ELearn"
-            buttonVariant="secondary"
-            route="/ELearn"
-          />
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="w-full max-w-md flex-1"
+          >
+            <Card
+              title="Instructor"
+              role="Teacher & Content Creator"
+              description="Empower learners by creating engaging courses, managing content, and tracking student progress in real-time."
+              features={instructorFeatures}
+              buttonText="Enter Teacher Studio"
+              route="/Dashboard/Auth/Signin"
+              accent="bg-brand/10"
+            />
+          </motion.div>
         </section>
       </div>
     </main>

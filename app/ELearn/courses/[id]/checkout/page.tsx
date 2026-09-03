@@ -1,6 +1,6 @@
 "use client";
 
-import React, { memo, useCallback, useState, use } from "react";
+import React, { memo, useCallback, useState, use, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
@@ -45,18 +45,26 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
   const router = useRouter();
   const [selectedPayment, setSelectedPayment] = useState<PaymentType>("visa");
 
+  useEffect(() => {
+    const isAuth = window.localStorage.getItem("isAuth") === "true";
+    if (!isAuth) {
+      toast.error("Please sign in to continue");
+      router.replace("/Auth/signin");
+    }
+  }, [router]);
+
   const handleBuyNow = useCallback(() => {
     toast.success("Payment successful 🎉");
     router.push(`/ELearn/courses/${id}/gift/watch`);
   }, [id, router]);
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4">
+    <div className="min-h-screen py-8 px-4">
         <nav className="flex items-center gap-2 my-4 justify-center">
-           <h1 className="text-3xl font-bold">Checkout</h1> 
+           <h1 className="text-3xl font-bold text-foreground">Checkout</h1> 
         </nav>
       <div className="max-w-6xl mx-auto space-y-6 py-4">
-        <h4 className="text-3xl font-bold">Payment Method</h4>
+        <h4 className="text-3xl font-bold text-foreground">Payment Method</h4>
         <div className="grid lg:grid-cols-4 gap-6">
           <div className="lg:col-span-2 space-y-6">
             <Card>
@@ -90,9 +98,9 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
 
             <Card>
               <CardContent className="p-6 space-y-4">
-                <div className="flex items-center justify-between border border-green-500 rounded-lg p-4">
+                <div className="flex items-center justify-between border border-[#6366F1] rounded-lg p-4">
                   <span className="font-medium">New Payment Card</span>
-                  <CheckCircle2 className="text-green-500" />
+                  <CheckCircle2 className="text-[#6366F1]" />
                 </div>
 
                 <Input placeholder="Name on card" />
@@ -103,8 +111,8 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
                   <Input placeholder="CVC" />
                 </div>
 
-                <label className="flex items-center gap-2 text-sm text-gray-600">
-                  <input type="checkbox" className="accent-orange-500" />
+                <label className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <input type="checkbox" className="accent-[#6366F1]" />
                   Remember this card, save it on my card list
                 </label>
               </CardContent>
@@ -126,18 +134,18 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
                       className="rounded object-cover"
                     />
                     <div className="flex-1 text-sm">
-                      <p className="text-gray-500">
+                      <p className="text-muted-foreground">
                         Course by: {course.author}
                       </p>
-                      <p className="font-medium leading-snug">
+                      <p className="font-medium leading-snug text-foreground">
                         {course.title}
                       </p>
                       <div className="flex gap-2 items-center">
-                        <span className="text-orange-500 font-semibold">
+                        <span className="text-[#6366F1] font-semibold">
                           ${course.price.toFixed(2)}
                         </span>
                         {course.oldPrice && (
-                          <span className="line-through text-gray-400">
+                          <span className="line-through text-muted-foreground">
                             ${course.oldPrice.toFixed(2)}
                           </span>
                         )}
@@ -162,7 +170,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
 
                 <Button
                   onClick={handleBuyNow}
-                  className="w-full bg-orange-500 hover:bg-orange-600 text-white py-6 text-base"
+                  className="w-full bg-[#6366F1] hover:bg-[#4F46E5] text-white py-6 text-base"
                 >
                   Complete Payment
                 </Button>
@@ -176,9 +184,9 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
 }
 
 const Row = memo(({ label, value }: { label: string; value: string }) => (
-  <div className="flex justify-between text-sm text-gray-600">
+  <div className="flex justify-between text-sm text-muted-foreground">
     <span>{label}</span>
-    <span className="font-medium text-gray-900">{value}</span>
+    <span className="font-medium text-foreground">{value}</span>
   </div>
 ));
 Row.displayName = "Row";

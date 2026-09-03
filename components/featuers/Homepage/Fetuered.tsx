@@ -10,14 +10,14 @@ import { motion } from "framer-motion";
 const FeatureCourses = ({ className }: { className?: string }) => {
     const { t } = useTranslation();
     return (
-        <div className={`max-w-7xl mx-auto px-4 py-16 bg-white ${className || ''}`}>
+        <div className={`max-w-7xl mx-auto px-4 py-16 ${className || ''}`}>
 
             <div className="flex flex-col md:flex-row justify-between items-start mb-12 gap-4">
                 <div className="flex  text-center justify-between  items-center flex-wrap  w-full">
-                    <h2 className="text-4xl font-bold text-gray-900 mb-3">
+                    <h2 className="text-4xl font-bold text-foreground mb-3">
                         {t("Our feature courses")}
                     </h2>
-                    <p className="text-gray-500 max-w-md">
+                    <p className="text-muted-foreground max-w-md">
                         {t("Vestibulum sed dolor sed diam mollis maximus vel nec dolor. Donec varius purus et eleifend porta." )}
                     </p>
                 </div>
@@ -28,7 +28,7 @@ const FeatureCourses = ({ className }: { className?: string }) => {
                 {coursesFeatured.map((course) => (
                     <div
                         key={course.id}
-                        className="flex flex-col sm:flex-row gap-4 p-4  bg-white rounded-lg border border-gray-200
+                        className="flex flex-col sm:flex-row gap-4 p-4  bg-card rounded-lg border border-border
                                    hover:shadow-lg transition-all duration-300"
                     >
                         {/* Image */}
@@ -54,16 +54,16 @@ const FeatureCourses = ({ className }: { className?: string }) => {
                                     </span>
 
                                     <div className="text-right">
-                                        <span className="text-xl font-bold text-gray-900">
+                                        <span className="text-xl font-bold text-foreground">
                                             ${course.price.toFixed(2)}
                                         </span>
-                                        <span className="text-sm text-gray-400 line-through ml-2">
+                                        <span className="text-sm text-muted-foreground line-through ml-2">
                                             ${course.originalPrice.toFixed(2)}
                                         </span>
                                     </div>
                                 </div>
 
-                                <h3 className="text-lg font-semibold text-gray-900 mb-3 line-clamp-2">
+                                <h3 className="text-lg font-semibold text-foreground mb-3 line-clamp-2">
                                     {course.title}
                                 </h3>
 
@@ -78,31 +78,31 @@ const FeatureCourses = ({ className }: { className?: string }) => {
                                             loading="lazy"
                                             className="rounded-full"
                                         />
-                                        <span className="text-sm text-gray-600">{course.instructor}</span>
+                                        <span className="text-sm text-muted-foreground">{course.instructor}</span>
                                     </div>
 
                                     <div className="flex items-center gap-1">
-                                        <Star className="w-4 h-4 fill-orange-400 text-orange-400" />
-                                        <span className="font-semibold text-gray-900">{course.rating}</span>
-                                        <span className="text-gray-500">({course.reviews})</span>
+                                        <Star className="w-4 h-4 fill-[#6366F1] text-[#6366F1]" />
+                                        <span className="font-semibold text-foreground">{course.rating}</span>
+                                        <span className="text-muted-foreground">({course.reviews})</span>
                                     </div>
                                 </div>
                             </div>
 
-                            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-gray-600">
+                            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted-foreground">
 
-                                <div className="flex items-center gap-1">
-                                    <Users className="w-4 h-4 text-purple-600" />
-                                    <span>{course.students} students</span>
-                                </div>
+                                    <div className="flex items-center gap-1">
+                                        <Users className="w-4 h-4 text-[#6366F1]" />
+                                        <span>{course.students} students</span>
+                                    </div>
 
-                                <div className="flex items-center gap-1">
-                                    <BarChart2 className="w-4 h-4 text-red-600" />
-                                    <span>{course.level}</span>
-                                </div>
+                                    <div className="flex items-center gap-1">
+                                        <BarChart2 className="w-4 h-4 text-[#6366F1]" />
+                                        <span>{course.level}</span>
+                                    </div>
 
-                                <div className="flex items-center gap-1">
-                                    <Clock className="w-4 h-4 text-green-500" />
+                                    <div className="flex items-center gap-1">
+                                        <Clock className="w-4 h-4 text-[#6366F1]" />
                                     <span>{course.duration}</span>
                                 </div>
 

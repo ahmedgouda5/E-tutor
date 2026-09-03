@@ -35,11 +35,11 @@ export default function InstructorLogin() {
   };
 
   return (
-    <main className="min-h-screen gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center p-6">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/50 backdrop-blur-sm">
       <div className="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md">
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-orange-100 rounded-full mb-4">
-            <User className="text-orange-600" size={32} />
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-[#EEF2FF] rounded-full mb-4">
+            <User className="text-[#6366F1]" size={32} />
           </div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
             Instructor Login
@@ -63,7 +63,7 @@ export default function InstructorLogin() {
                 {...register("email")}
                 type="email"
                 id="email"
-                className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all ${
+                className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#6366F1] focus:border-transparent outline-none transition-all ${
                   errors.email ? "border-red-500 bg-red-50" : "border-gray-300"
                 }`}
                 placeholder="instructor@example.com"
@@ -91,7 +91,7 @@ export default function InstructorLogin() {
                 {...register("password")}
                 type="password"
                 id="password"
-                className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all ${
+                className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#6366F1] focus:border-transparent outline-none transition-all ${
                   errors.password
                     ? "border-red-500 bg-red-50"
                     : "border-gray-300"
@@ -110,13 +110,13 @@ export default function InstructorLogin() {
             <label className="flex items-center">
               <input
                 type="checkbox"
-                className="w-4 h-4 text-orange-600 border-gray-300 rounded focus:ring-orange-500"
+                className="w-4 h-4 text-[#6366F1] border-gray-300 rounded focus:ring-[#6366F1]"
               />
               <span className="ml-2 text-sm text-gray-600">Remember me</span>
             </label>
             <Link
               href="#"
-              className="text-sm text-orange-600 hover:text-orange-700 font-medium"
+              className="text-sm text-[#6366F1] hover:text-[#4F46E5] font-medium"
             >
               Forgot password?
             </Link>
@@ -125,7 +125,7 @@ export default function InstructorLogin() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-orange-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-orange-700 focus:ring-4 focus:ring-orange-200 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            className="w-full bg-[#6366F1] text-white py-3 px-6 rounded-lg font-semibold hover:bg-[#4F46E5] focus:ring-4 focus:ring-[#C7D2FE] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           >
             {isSubmitting ? (
               <>
@@ -146,13 +146,13 @@ export default function InstructorLogin() {
             Don&apos;t have an account?{" "}
             <Link
               href="/Dashboard/Auth/Signup"
-              className="text-orange-600 hover:text-orange-700 font-medium"
+              className="text-[#6366F1] hover:text-[#4F46E5] font-medium"
             >
               Sign up
             </Link>
           </p>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

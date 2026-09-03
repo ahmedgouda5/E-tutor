@@ -18,10 +18,10 @@ const TrustedCompanies = ({ className }: { className?: string }) => {
     <section className={`my-16 max-w-7xl mx-auto ${className || ""}`}>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-center">
         <div>
-          <h2 className="text-3xl font-bold mb-4">
+          <h2 className="text-3xl font-bold mb-4 text-foreground">
             {t("6.3k trusted companies")}
           </h2>
-          <p className="text-gray-600 leading-relaxed">
+          <p className="text-muted-foreground leading-relaxed">
             {t(
               "Nullam egestas tellus at enim ornare tristique. Class aptent taciti sociosqu ad litora torquent per conubia nostra."
             )}
@@ -32,7 +32,7 @@ const TrustedCompanies = ({ className }: { className?: string }) => {
           {companies.map((c) => (
             <div
               key={c.id}
-              className="bg-white border rounded-xl shadow-sm p-6 flex items-center justify-center"
+              className="bg-card border rounded-xl shadow-sm p-6 flex items-center justify-center"
             >
               <Image
                 src={c.logo}

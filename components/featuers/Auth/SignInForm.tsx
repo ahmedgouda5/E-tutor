@@ -3,8 +3,12 @@
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff, UserRound } from "lucide-react";
 import React, { useState } from "react";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
+import { AuthStore } from "@/store/AuthStore";
+import { AddToLocalStorage } from "@/lib/utils";
 
 const FormSchema = z.object({
   email: z.string().email("Enter a valid email"),
@@ -13,6 +17,8 @@ const FormSchema = z.object({
 
 const SignInForm = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const { setFormData } = AuthStore();
+  const router = useRouter();
 
   const {
     register,
@@ -25,7 +31,11 @@ const SignInForm = () => {
   });
 
   const onSubmit = (data: z.infer<typeof FormSchema>) => {
+    setFormData({ email: data.email });
+    AddToLocalStorage("isAuth", "true");
+    toast.success("Signed in successfully");
     reset();
+    router.push("/");
   };
 
   return (
@@ -34,16 +44,20 @@ const SignInForm = () => {
         onSubmit={handleSubmit(onSubmit)}
         className="w-full max-w-xl flex flex-col gap-6"
       >
+        <div className="text-center mb-2">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-[#EEF2FF] rounded-full mb-4">
+            <UserRound className="text-[#6366F1]" size={32} />
+          </div>
+        </div>
         <h1 className="text-3xl font-semibold text-center mb-2">
           Sign in to your account
         </h1>
-
         <div>
           <input
             {...register("email")}
             type="email"
             placeholder="Email address"
-            className="p-3 border rounded-lg w-full"
+            className="p-3 border rounded-lg w-full bg-background text-foreground"
           />
           {errors.email && (
             <p className="text-red-500 text-sm">{errors.email.message}</p>
@@ -55,12 +69,12 @@ const SignInForm = () => {
             {...register("password")}
             type={showPassword ? "text" : "password"}
             placeholder="Enter your password"
-            className="p-3 border rounded-lg w-full"
+            className="p-3 border rounded-lg w-full bg-background text-foreground"
           />
 
           <button
             type="button"
-            className="absolute right-3 top-3 text-gray-600"
+            className="absolute right-3 top-3 text-muted-foreground"
             onClick={() => setShowPassword(!showPassword)}
           >
             {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
@@ -78,7 +92,7 @@ const SignInForm = () => {
 
         <button
           type="submit"
-          className="bg-orange-500 text-white p-3 rounded-lg w-full mt-1 hover:bg-orange-600 transition"
+          className="bg-[#6366F1] text-white p-3 rounded-lg w-full mt-1 hover:bg-[#4F46E5] transition"
         >
           Sign In →
         </button>

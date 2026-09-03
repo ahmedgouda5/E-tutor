@@ -4,11 +4,12 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff, UserPlus } from "lucide-react";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { AuthStore } from "@/store/AuthStore";
+import { AddToLocalStorage } from "@/lib/utils";
 
 const FormSchema = z
   .object({
@@ -42,6 +43,7 @@ const SignUpForm = () => {
 
   const onSubmit = (data: z.infer<typeof FormSchema>) => {
     setFormData(data);
+    AddToLocalStorage("isAuth", "true");
     toast.loading("Creating account...");
     setTimeout(() => {
       toast.dismiss();
@@ -57,6 +59,11 @@ const SignUpForm = () => {
         onSubmit={handleSubmit(onSubmit)}
         className="w-full max-w-xl flex flex-col gap-6"
       >
+        <div className="text-center mb-2">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-[#EEF2FF] rounded-full mb-4">
+            <UserPlus className="text-[#6366F1]" size={32} />
+          </div>
+        </div>
         <h1 className="text-3xl font-semibold text-center mb-2">
           Create your account
         </h1>
@@ -66,7 +73,7 @@ const SignUpForm = () => {
             <input
               {...register("firstName")}
               placeholder="First name..."
-              className="p-3 border rounded-lg w-full"
+              className="p-3 border rounded-lg w-full bg-background text-foreground"
             />
             {errors.firstName && (
               <p className="text-red-500 text-sm">{errors.firstName.message}</p>
@@ -77,7 +84,7 @@ const SignUpForm = () => {
             <input
               {...register("lastName")}
               placeholder="Last name..."
-              className="p-3 border rounded-lg w-full"
+              className="p-3 border rounded-lg w-full bg-background text-foreground"
             />
             {errors.lastName && (
               <p className="text-red-500 text-sm">{errors.lastName.message}</p>
@@ -89,7 +96,7 @@ const SignUpForm = () => {
           <input
             {...register("username")}
             placeholder="Username..."
-            className="p-3 border rounded-lg w-full"
+            className="p-3 border rounded-lg w-full bg-background text-foreground"
           />
           {errors.username && (
             <p className="text-red-500 text-sm">{errors.username.message}</p>
@@ -101,7 +108,7 @@ const SignUpForm = () => {
             {...register("email")}
             type="email"
             placeholder="Email address"
-            className="p-3 border rounded-lg w-full"
+            className="p-3 border rounded-lg w-full bg-background text-foreground"
           />
           {errors.email && (
             <p className="text-red-500 text-sm">{errors.email.message}</p>
@@ -113,12 +120,12 @@ const SignUpForm = () => {
             {...register("password")}
             type={showPassword ? "text" : "password"}
             placeholder="Create password"
-            className="p-3 border rounded-lg w-full"
+            className="p-3 border rounded-lg w-full bg-background text-foreground"
           />
 
           <button
             type="button"
-            className="absolute right-3 top-3 text-gray-600"
+            className="absolute right-3 top-3 text-muted-foreground"
             onClick={() => setShowPassword(!showPassword)}
           >
             {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
@@ -134,12 +141,12 @@ const SignUpForm = () => {
             {...register("confirmPassword")}
             type={showConfirm ? "text" : "password"}
             placeholder="Confirm password"
-            className="p-3 border rounded-lg w-full"
+            className="p-3 border rounded-lg w-full bg-background text-foreground"
           />
 
           <button
             type="button"
-            className="absolute right-3 top-3 text-gray-600"
+            className="absolute right-3 top-3 text-muted-foreground"
             onClick={() => setShowConfirm(!showConfirm)}
           >
             {showConfirm ? <EyeOff size={20} /> : <Eye size={20} />}
@@ -156,7 +163,7 @@ const SignUpForm = () => {
           <input type="checkbox" className="w-4 h-4" />
           <span className="text-sm">
             I agree with{" "}
-            <span className="text-blue-500 underline cursor-pointer">
+            <span className="text-[#6366F1] underline cursor-pointer">
               Terms & Conditions
             </span>
           </span>
@@ -164,7 +171,7 @@ const SignUpForm = () => {
 
         <button
           type="submit"
-          className="bg-orange-500 text-white p-3 rounded-lg w-full mt-1 hover:bg-orange-600 transition"
+          className="bg-[#6366F1] text-white p-3 rounded-lg w-full mt-1 hover:bg-[#4F46E5] transition"
         >
           Create Account →
         </button>

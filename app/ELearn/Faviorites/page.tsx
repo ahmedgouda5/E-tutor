@@ -6,17 +6,17 @@ import { useFavioritesStore } from "@/store/FavioritesStore";
 const FavioritePage = () => {
   const { faviorites, removeFaviorite } = useFavioritesStore();
   return (
-    <div className="min-h-screen bg-linear-to-br from-slate-50 to-slate-100 p-4 md:p-8">
+    <div className="min-h-screen p-4 md:p-8">
       <div className="max-w-6xl mx-auto">
         <div>
           <div className="lg:col-span-2 space-y-4">
             {faviorites.length === 0 ? (
-              <div className="bg-white rounded-2xl shadow-lg p-12 text-center">
-                <ShoppingCart className="w-16 h-16 text-slate-300 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-slate-700 mb-2">
+              <div className="bg-card rounded-2xl shadow-lg p-12 text-center">
+                <ShoppingCart className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
+                <h3 className="text-xl font-semibold text-foreground mb-2">
                   Your Faviorites is empty
                 </h3>
-                <p className="text-slate-500">
+                <p className="text-muted-foreground">
                   Add some courses to get started!
                 </p>
               </div>
@@ -24,11 +24,11 @@ const FavioritePage = () => {
               faviorites.map((item: ICourse) => (
                 <div
                   key={item.id}
-                  className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow"
+                  className="bg-card rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow"
                 >
                   <div className="flex gap-6">
                     <div className="shrink-0">
-                      <div className="w-40 h-24 bg-linear-to-br from-orange-400 to-purple-500 rounded-lg flex items-center justify-center">
+                      <div className="w-40 h-24 bg-linear-to-br from-[#818CF8] to-[#6366F1] rounded-lg flex items-center justify-center">
                         <Image
                           src={item.image}
                           alt={item.title}
@@ -42,13 +42,13 @@ const FavioritePage = () => {
                     <div className="flex-1">
                       <div className="flex justify-between items-start mb-2">
                         <div>
-                          <span className="inline-block px-3 py-1 bg-orange-100 text-orange-700 text-xs font-medium rounded-full mb-2">
+                          <span className="inline-block px-3 py-1 bg-[#EEF2FF] text-[#6366F1] text-xs font-medium rounded-full mb-2">
                             {item.category}
                           </span>
-                          <h3 className="text-lg font-semibold text-slate-800 mb-1 line-clamp-2">
+                          <h3 className="text-lg font-semibold text-foreground mb-1 line-clamp-2">
                             {item.title}
                           </h3>
-                          <p className="text-sm text-slate-600">
+                          <p className="text-sm text-muted-foreground">
                             by {item.instructorName}
                           </p>
                         </div>
@@ -61,10 +61,10 @@ const FavioritePage = () => {
                         </button>
                       </div>
 
-                      <div className="flex items-center gap-4 text-sm text-slate-600 mb-3">
+                      <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
                         <div className="flex items-center gap-1">
-                          <span className="text-yellow-500">★</span>
-                          <span className="font-medium">{item.rating}</span>
+                          <span className="text-[#6366F1]">★</span>
+                          <span className="font-medium text-foreground">{item.rating}</span>
                         </div>
                         <span>•</span>
                         <span>{item.students} students</span>
@@ -74,7 +74,7 @@ const FavioritePage = () => {
                         <div className="text-right">
                           <div className="flex items-center gap-2">
                             {item.discount > 0 && (
-                              <span className="text-sm text-slate-400 line-through">
+                              <span className="text-sm text-muted-foreground line-through">
                                 {item.price}
                               </span>
                             )}

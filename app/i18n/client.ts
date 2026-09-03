@@ -3,6 +3,7 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import HttpBackend from "i18next-http-backend";
+import enTranslations from "@/public/locales/en/translation.json";
 if (!i18n.isInitialized) {
   if (typeof window !== "undefined") {
     i18n
@@ -23,7 +24,8 @@ if (!i18n.isInitialized) {
         },
       });
   } else {
-    // Server-side (build time) configuration
+    // Server-side (build time) configuration - use the same English
+    // translations as the client so SSR output matches hydration.
     i18n.use(initReactI18next).init({
       fallbackLng: "en",
       lng: "en",
@@ -32,7 +34,7 @@ if (!i18n.isInitialized) {
         useSuspense: false,
       },
       resources: {
-        en: { translation: {} }, // Empty resources for build
+        en: { translation: enTranslations },
       },
       interpolation: {
         escapeValue: false,

@@ -10,13 +10,15 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "E-Tutor",
-  description: "E-Tutor - platform for online learning and teaching ",
+  title: {
+    default: "E-Tutor | Premium Learning Platform",
+    template: "%s | E-Tutor",
+  },
+  description: "A premium learning management system for online education. Learn from expert instructors, track your progress, and earn certificates.",
   icons: {
     icon: "/GraduationCap.webp",
   },
 };
-
 
 export default function RootLayout({
   children,
@@ -25,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} antialiased`}>
+      <body className={`${inter.variable} font-sans antialiased`}>
         <ErrorBoundary>
           {children}
         </ErrorBoundary>

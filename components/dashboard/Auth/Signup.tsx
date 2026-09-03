@@ -35,11 +35,11 @@ export default function InstructorSignup() {
   };
 
   return (
-    <main className="min-h-screen gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center p-6">
-      <div className="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-2xl">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/50 backdrop-blur-sm">
+      <div className="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-2xl max-h-[90vh] overflow-y-auto">
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-orange-100 rounded-full mb-4">
-            <UserPlus className="text-orange-600" size={32} />
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-[#EEF2FF] rounded-full mb-4">
+            <UserPlus className="text-[#6366F1]" size={32} />
           </div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
             Create Instructor Account
@@ -66,7 +66,7 @@ export default function InstructorSignup() {
                   {...register("firstName")}
                   type="text"
                   id="firstName"
-                  className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all ${
+                  className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#6366F1] focus:border-transparent outline-none transition-all ${
                     errors.firstName
                       ? "border-red-500 bg-red-50"
                       : "border-gray-300"
@@ -96,7 +96,7 @@ export default function InstructorSignup() {
                   {...register("lastName")}
                   type="text"
                   id="lastName"
-                  className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all ${
+                  className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#6366F1] focus:border-transparent outline-none transition-all ${
                     errors.lastName
                       ? "border-red-500 bg-red-50"
                       : "border-gray-300"
@@ -127,7 +127,7 @@ export default function InstructorSignup() {
                 {...register("email")}
                 type="email"
                 id="email"
-                className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all ${
+                className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#6366F1] focus:border-transparent outline-none transition-all ${
                   errors.email
                     ? "border-red-500 bg-red-50"
                     : "border-gray-300"
@@ -157,7 +157,7 @@ export default function InstructorSignup() {
                 {...register("phone")}
                 type="tel"
                 id="phone"
-                className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all ${
+                className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#6366F1] focus:border-transparent outline-none transition-all ${
                   errors.phone
                     ? "border-red-500 bg-red-50"
                     : "border-gray-300"
@@ -188,7 +188,7 @@ export default function InstructorSignup() {
                   {...register("password")}
                   type="password"
                   id="password"
-                  className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all ${
+                  className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#6366F1] focus:border-transparent outline-none transition-all ${
                     errors.password
                       ? "border-red-500 bg-red-50"
                       : "border-gray-300"
@@ -218,7 +218,7 @@ export default function InstructorSignup() {
                   {...register("confirmPassword")}
                   type="password"
                   id="confirmPassword"
-                  className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all ${
+                  className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#6366F1] focus:border-transparent outline-none transition-all ${
                     errors.confirmPassword
                       ? "border-red-500 bg-red-50"
                       : "border-gray-300"
@@ -238,16 +238,16 @@ export default function InstructorSignup() {
             <input
               type="checkbox"
               id="terms"
-              className="w-4 h-4 mt-1 text-orange-600 border-gray-300 rounded focus:ring-orange-500"
+              className="w-4 h-4 mt-1 text-[#6366F1] border-gray-300 rounded focus:ring-[#6366F1]"
               required
             />
             <label htmlFor="terms" className="ml-2 text-sm text-gray-600">
               I agree to the{" "}
-              <Link href="#" className="text-orange-600 hover:text-orange-700 font-medium">
+              <Link href="#" className="text-[#6366F1] hover:text-[#4F46E5] font-medium">
                 Terms of Service
               </Link>{" "}
               and{" "}
-              <Link href="#" className="text-orange-600 hover:text-orange-700 font-medium">
+              <Link href="#" className="text-[#6366F1] hover:text-[#4F46E5] font-medium">
                 Privacy Policy
               </Link>
             </label>
@@ -256,7 +256,7 @@ export default function InstructorSignup() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-orange-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-orange-700 focus:ring-4 focus:ring-orange-200 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            className="w-full bg-[#6366F1] text-white py-3 px-6 rounded-lg font-semibold hover:bg-[#4F46E5] focus:ring-4 focus:ring-[#C7D2FE] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           >
             {isSubmitting ? (
               <>
@@ -277,13 +277,13 @@ export default function InstructorSignup() {
             Already have an account?{" "}
             <Link
               href="/Dashboard/Auth/Signin"
-              className="text-orange-600 hover:text-orange-700 font-medium"
+              className="text-[#6366F1] hover:text-[#4F46E5] font-medium"
             >
               Sign in
             </Link>
           </p>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

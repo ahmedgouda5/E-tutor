@@ -16,18 +16,18 @@ const BestSelling = ({ className }: { className?: string }) => {
             <motion.div initial={{ y: 100,opacity: 0 }} whileInView={{ y: 0,opacity: 1 }} transition={{ duration: 1 ,delay: 0.2 }} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
                 {bestSellingCourses.slice(0, 4).map((course, i) => (
                   <Link key={i} href={`/ELearn/courses/${course.id}`}>
-                      <div key={i} className="border rounded-xl overflow-hidden shadow-sm h-[330px]">
+                      <div key={i} className="border bg-card rounded-xl overflow-hidden shadow-sm h-[330px]">
                         <Image src={course.image} alt={course.title} priority className="w-full h-40 object-cover" width={400} height={160} />
 
                         <div className="p-4">
                             <div className="flex items-center justify-between mb-2">
-                                <span className="text-xs font-bold text-orange-600">{course.category}</span>
-                                <span className="text-xs font-bold text-red-500">{course.price}</span>
+                                <span className="text-xs font-bold text-[#6366F1]">{course.category}</span>
+                                <span className="text-xs font-bold text-[#6366F1]">{course.price}</span>
                             </div>
 
-                            <h3 className="font-semibold text-sm leading-5 mb-3">{course.title}</h3>
+                            <h3 className="font-semibold text-sm leading-5 mb-3 text-foreground">{course.title}</h3>
 
-                            <div className="flex items-center justify-between text-sm text-gray-600">
+                            <div className="flex items-center justify-between text-sm text-muted-foreground">
                                 <span>⭐ {course.rating}</span>
                                 <span>{course.students} students</span>
                             </div>

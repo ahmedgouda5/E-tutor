@@ -12,7 +12,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
   const course = AllCourses.find((course) => course.id === Number(id));
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen">
       <nav>
         <WCourseNav id={id} />
       </nav>
@@ -27,29 +27,29 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
             />
           </div>
 
-          <div className="bg-white p-6">
-            <h1 className="text-2xl font-bold mb-2">{course?.title}</h1>
-            <p className="text-gray-600 mb-4">{COURSE_DATA.title}</p>
+          <div className="bg-card p-6">
+            <h1 className="text-2xl font-bold mb-2 text-foreground">{course?.title}</h1>
+            <p className="text-muted-foreground mb-4">{COURSE_DATA.title}</p>
 
-            <div className="border-b border-gray-200 mb-6">
+            <div className="border-b border-border mb-6">
               <div className="flex gap-6">
-                <button className="pb-3 border-b-2 border-orange-500 text-orange-500 font-semibold">
+                <button className="pb-3 border-b-2 border-[#6366F1] text-[#6366F1] font-semibold">
                   Overview
                 </button>
-                <button className="pb-3 text-gray-600 hover:text-gray-900">
+                <button className="pb-3 text-muted-foreground hover:text-foreground">
                   Q&A
                 </button>
-                <button className="pb-3 text-gray-600 hover:text-gray-900">
+                <button className="pb-3 text-muted-foreground hover:text-foreground">
                   Notes
                 </button>
-                <button className="pb-3 text-gray-600 hover:text-gray-900">
+                <button className="pb-3 text-muted-foreground hover:text-foreground">
                   Resources
                 </button>
               </div>
             </div>
 
             <div className="mb-8">
-              <h2 className="text-xl font-bold mb-4">Instructor</h2>
+              <h2 className="text-xl font-bold mb-4 text-foreground">Instructor</h2>
 
               <div className="flex items-start gap-4">
                 <Image
@@ -62,18 +62,18 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
                 />
 
                 <div>
-                  <h3 className="font-bold text-lg">
+                  <h3 className="font-bold text-lg text-foreground">
                     {course?.instructorName}
                   </h3>
-                  <p className="text-gray-600 text-sm mb-2">
+                  <p className="text-muted-foreground text-sm mb-2">
                     {course?.instructorTitle}
                   </p>
 
-                  <p className="text-gray-700 mb-3">{course?.instructorBio}</p>
+                  <p className="text-muted-foreground mb-3">{course?.instructorBio}</p>
 
-                  <div className="flex gap-6 text-sm text-gray-600">
+                  <div className="flex gap-6 text-sm text-muted-foreground">
                     <span className="flex items-center gap-1">
-                      <Star className="w-4 h-4 text-orange-400 fill-orange-400" />
+                      <Star className="w-4 h-4 text-[#6366F1] fill-[#6366F1]" />
                       {course?.instructorRating} Rating
                     </span>
 
@@ -88,15 +88,15 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold mb-4">Student Comments</h2>
+              <h2 className="text-xl font-bold mb-4 text-foreground">Student Comments</h2>
 
               <textarea
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg"
+                className="w-full px-4 py-3 border border-input rounded-lg bg-background"
                 rows={3}
                 placeholder="Add a comment..."
               />
 
-              <button className="mt-2 px-6 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600">
+              <button className="mt-2 px-6 py-2 bg-[#6366F1] text-white rounded-lg hover:bg-[#4F46E5]">
                 Post Comment
               </button>
 
@@ -104,7 +104,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
                 {COURSE_DATA.comments.map((c) => (
                   <div
                     key={c.id}
-                    className="flex gap-4 pb-4 border-b border-gray-200"
+                    className="flex gap-4 pb-4 border-b border-border"
                   >
                     <div className="w-10 h-10 rounded-full overflow-hidden shrink-0">
                       <Image
@@ -119,18 +119,18 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
 
                     <div>
                       <div className="flex items-center gap-2">
-                        <span className="font-semibold text-sm">{c.user}</span>
-                        <span className="text-xs text-gray-500">{c.date}</span>
+                        <span className="font-semibold text-sm text-foreground">{c.user}</span>
+                        <span className="text-xs text-muted-foreground">{c.date}</span>
                       </div>
 
-                      <p className="text-gray-700 text-sm mb-2">{c.comment}</p>
+                      <p className="text-muted-foreground text-sm mb-2">{c.comment}</p>
 
                       <div className="flex items-center gap-4 text-xs">
-                        <button className="flex items-center gap-1 text-gray-600 hover:text-orange-500">
+                        <button className="flex items-center gap-1 text-muted-foreground hover:text-[#6366F1]">
                           <ThumbsUp className="w-3 h-3" /> {c.likes}
                         </button>
 
-                        <button className="flex items-center gap-1 text-gray-600 hover:text-orange-500">
+                        <button className="flex items-center gap-1 text-muted-foreground hover:text-[#6366F1]">
                           <MessageCircle className="w-3 h-3" /> Reply
                         </button>
                       </div>
@@ -141,10 +141,10 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
             </div>
           </div>
         </div>
-        <div className="lg:w-96 bg-white border-l border-gray-200 lg:h-screen lg:sticky lg:top-0 overflow-y-auto">
-          <div className="p-4 border-b bg-gray-50">
-            <h2 className="font-bold text-lg">Course Content</h2>
-            <p className="text-sm text-gray-600">
+        <div className="lg:w-96 bg-card border-l border-border lg:h-screen lg:sticky lg:top-0 overflow-y-auto">
+          <div className="p-4 border-b bg-muted">
+            <h2 className="font-bold text-lg text-foreground">Course Content</h2>
+            <p className="text-sm text-muted-foreground">
               {COURSE_DATA.sections.length} sections •{" "}
               {COURSE_DATA.sections.reduce(
                 (acc, s) => acc + s.lectures.length,

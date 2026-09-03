@@ -13,26 +13,26 @@ const InstructorBanner = ({ className }: { className?: string }) => {
     {
       id: 1,
       title: "Apply to become an instructor",
-      bgColor: "#EBEBFF",
-      textColor: "#564FFD",
+      bgColor: "#EEF2FF",
+      textColor: "#6366F1",
     },
     {
       id: 2,
       title: "Build & edit your profile",
-      bgColor: "#FFF0F0",
-      textColor: "#FF6636",
+      bgColor: "#E0E7FF",
+      textColor: "#4F46E5",
     },
     {
       id: 3,
       title: "Create your new course",
-      bgColor: "#FFEFEF",
-      textColor: "#E34444",
+      bgColor: "#EEF2FF",
+      textColor: "#6366F1",
     },
     {
       id: 4,
       title: "Start teaching & earning",
-      bgColor: "#E1F7E3",
-      textColor: "#23BD33",
+      bgColor: "#E0E7FF",
+      textColor: "#4F46E5",
     },
   ];
 
@@ -43,7 +43,7 @@ const InstructorBanner = ({ className }: { className?: string }) => {
       }`}
     >
       {/* LEFT BANNER */}
-      <div className="flex items-center justify-between bg-linear-to-r from-amber-600 to-amber-500 px-10 py-8 rounded-xl text-white w-full lg:w-[48%]">
+      <div className="flex items-center justify-between bg-linear-to-r from-[#6366F1] to-[#818CF8] px-10 py-8 rounded-xl text-white w-full lg:w-[48%]">
         <div className="flex flex-col gap-4 max-w-md">
           <h2 className="text-3xl font-bold">{t("Become an Instructor")}</h2>
           <p className="text-sm leading-relaxed opacity-90">
@@ -51,7 +51,7 @@ const InstructorBanner = ({ className }: { className?: string }) => {
               "Instructors from around the world teach millions of students on Udemy. We provide the tools and skills to teach what you love."
             )}
           </p>
-          <Button className="bg-white text-amber-600 hover:bg-gray-100 flex items-center gap-2 w-fit">
+          <Button className="bg-white text-[#6366F1] hover:bg-gray-100 flex items-center gap-2 w-fit">
             {t("Start Teaching")} <ArrowRight size={18} />
           </Button>
         </div>
@@ -66,7 +66,7 @@ const InstructorBanner = ({ className }: { className?: string }) => {
       </div>
 
       <div className="w-full lg:w-[48%]">
-        <h1 className="text-3xl font-bold mb-6">
+        <h1 className="text-3xl font-bold mb-6 text-foreground">
           {t("Your teaching & earning steps")}
         </h1>
 
@@ -74,7 +74,7 @@ const InstructorBanner = ({ className }: { className?: string }) => {
           {InstructorBannerData.map((item) => (
             <div
               key={item.id}
-              className="flex items-center gap-4 p-5 rounded-lg shadow-sm border border-gray-100 bg-white"
+              className="flex items-center gap-4 p-5 rounded-lg shadow-sm border border-border bg-card"
             >
               <div
                 className="rounded-full w-12 h-12 flex items-center justify-center text-md font-semibold shrink-0"

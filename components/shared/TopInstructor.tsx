@@ -18,7 +18,7 @@ const TopInstructor = ({ className }: { className?: string }) => {
         {TopInstructorData.slice(0, 4).map((instructor) => (
           <div
             key={instructor.id}
-            className="border rounded-xl flex flex-col items-center hover:shadow-orange-300 hover:shadow-lg transition-all duration-300 overflow-hidden shadow-sm bg-white"
+            className="border rounded-xl flex flex-col items-center hover:shadow-purple-300 hover:shadow-lg transition-all duration-300 overflow-hidden shadow-sm bg-card"
           >
             <Image
               loading="lazy"
@@ -31,12 +31,12 @@ const TopInstructor = ({ className }: { className?: string }) => {
 
             <div className="text-center px-3 py-2 h-[100px]">
               <h3 className="text-lg font-semibold">{instructor.name}</h3>
-              <p className="text-gray-500 text-sm">{instructor.title}</p>
+              <p className="text-muted-foreground text-sm">{instructor.title}</p>
             </div>
 
-            <div className="border-t w-full flex flex-col justify-between px-2 gap-2 py-2 text-sm text-gray-700 items-center">
+            <div className="border-t w-full flex flex-col justify-between px-2 gap-2 py-2 text-sm text-foreground items-center">
               <span className="flex items-center gap-1">
-                <Star size={16} className="text-orange-600 fill-orange-600" />{" "}
+                <Star size={16} className="text-[#6366F1] fill-[#6366F1]" />{" "}
                 {instructor.rating}
               </span>
               <span>{instructor.students} students</span>
@@ -51,7 +51,7 @@ const TopInstructor = ({ className }: { className?: string }) => {
           )}
         </h3>
         <Link
-          className="text-orange-500 inline-flex items-center gap-1 font-medium"
+          className="text-[#6366F1] inline-flex items-center gap-1 font-medium"
           href="#"
           prefetch
         >

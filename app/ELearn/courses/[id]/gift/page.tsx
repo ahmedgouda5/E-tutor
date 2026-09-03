@@ -1,5 +1,5 @@
 "use client";
-import React, { use, useState, useCallback, memo } from "react";
+import React, { use, useState, useCallback, memo, useEffect } from "react";
 import { Star, CheckCircle2 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -58,6 +58,14 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
   const router = useRouter();
   const [selectedPayment, setSelectedPayment] = useState("");
 
+  useEffect(() => {
+    const isAuth = window.localStorage.getItem("isAuth") === "true";
+    if (!isAuth) {
+      toast.error("Please sign in to continue");
+      router.replace("/Auth/signin");
+    }
+  }, [router]);
+
   const {
     register: registerRecipient,
     handleSubmit: handleSubmitRecipient,
@@ -97,11 +105,11 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
 
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4">
+    <div className="min-h-screen py-8 px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="text-sm text-gray-500 mb-6">Home / Courses / Gift</div>
+        <div className="text-sm text-muted-foreground mb-6">Home / Courses / Gift</div>
 
-        <h1 className="text-3xl font-bold mb-8">Gift Course</h1>
+        <h1 className="text-3xl font-bold mb-8 text-foreground">Gift Course</h1>
 
         <div className="grid lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2 space-y-6">
@@ -124,7 +132,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
                     <p className="text-red-500 text-sm">{errorsRecipient.giftNote.message}</p>
                   )}
 
-                  <Button className="bg-orange-500 hover:bg-orange-600 text-white">
+                  <Button className="bg-[#6366F1] hover:bg-[#4F46E5] text-white">
                     Save Recipient Info
                   </Button>
                 </form>
@@ -137,14 +145,14 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
                 <form onSubmit={handleSubmitMessage(onSubmitMessage)} className="space-y-3">
                   <textarea
                     {...registerMessage("message")}
-                    className="w-full min-h-[120px] px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+                    className="w-full min-h-[120px] px-3 py-2 text-sm border border-input rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-[#6366F1]"
                     placeholder="Add your personal message (max 500 chars)"
                   />
                   {errorsMessage.message && (
                     <p className="text-red-500 text-sm">{errorsMessage.message.message}</p>
                   )}
 
-                  <Button className="bg-orange-500 hover:bg-orange-600 text-white">
+                  <Button className="bg-[#6366F1] hover:bg-[#4F46E5] text-white">
                     Save Message
                   </Button>
                 </form>
@@ -159,7 +167,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
                   <PaymentOption type="mastercard" selectedPayment={selectedPayment} onSelect={handlePaymentSelect} />
                   <PaymentOption type="paypal" selectedPayment={selectedPayment} onSelect={handlePaymentSelect} />
                 </div>
-                <button className="text-orange-500 text-sm mt-2">+ Add New Card</button>
+                <button className="text-[#6366F1] text-sm mt-2">+ Add New Card</button>
               </CardContent>
             </Card>
           </div>
@@ -178,10 +186,10 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
                     className="w-full sm:w-40 lg:w-full h-40 object-cover rounded"
                   />
                   <div className="flex-1">
-                    <h2 className="text-lg font-semibold mb-2">{COURSE_DATA.title}</h2>
-                    <div className="flex items-center gap-4 text-sm text-gray-600">
+                    <h2 className="text-lg font-semibold mb-2 text-foreground">{COURSE_DATA.title}</h2>
+                    <div className="flex items-center gap-4 text-sm text-muted-foreground">
                       <span className="flex items-center gap-1">
-                        <Star className="w-4 h-4 fill-orange-400 text-orange-400" />
+                        <Star className="w-4 h-4 fill-[#6366F1] text-[#6366F1]" />
                         {COURSE_DATA.rating} ({COURSE_DATA.reviews} reviews)
                       </span>
                       <span>{COURSE_DATA.students.toLocaleString()} students</span>
@@ -189,7 +197,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
                   </div>
                 </div>
 
-                <h3 className="text-xl font-bold mt-4">Order Summary</h3>
+                <h3 className="text-xl font-bold mt-4 text-foreground">Order Summary</h3>
                 <div className="space-y-3 text-sm">
                   <Row label="Original Price" value={ORDER_SUMMARY.originalPrice} />
                   <Row label="Discount" value={ORDER_SUMMARY.discount} />
@@ -197,10 +205,10 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
                 </div>
                 <div className="border-t my-4"></div>
                 <div className="flex justify-between items-center">
-                  <span className="text-lg font-bold">Total</span>
-                  <span className="text-2xl font-bold">{ORDER_SUMMARY.total}</span>
+                  <span className="text-lg font-bold text-foreground">Total</span>
+                  <span className="text-2xl font-bold text-foreground">{ORDER_SUMMARY.total}</span>
                 </div>
-                <Button onClick={handleBuyNow} className="w-full bg-orange-500 hover:bg-orange-600 text-white py-5 text-base font-medium">
+                <Button onClick={handleBuyNow} className="w-full bg-[#6366F1] hover:bg-[#4F46E5] text-white py-5 text-base font-medium">
                   Complete Payment
                 </Button>
               </CardContent>
@@ -214,8 +222,8 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
 
 const Row = memo<RowProps>(({ label, value }) => (
   <div className="flex justify-between text-sm">
-    <span className="text-gray-600">{label}:</span>
-    <span className="font-medium">{value}</span>
+    <span className="text-muted-foreground">{label}:</span>
+    <span className="font-medium text-foreground">{value}</span>
   </div>
 ));
 Row.displayName = "Row";
@@ -227,16 +235,16 @@ const PaymentOption = memo<PaymentOptionProps>(({ type, selectedPayment, onSelec
     <div
       onClick={() => onSelect(type)}
       className={`p-4 border-2 rounded-lg cursor-pointer flex items-center justify-between transition ${
-        isSelected ? "border-green-500 bg-green-50" : "border-gray-200"
+        isSelected ? "border-[#6366F1] bg-[#EEF2FF]" : "border-border"
       }`}
     >
       <div className="flex items-center gap-3">
         {type === "visa" && <VisaLogo />}
         {type === "mastercard" && <MastercardLogo />}
         {type === "paypal" && <PaypalLogo />}
-        <span className="text-sm text-gray-700">{type.toUpperCase()}</span>
+        <span className="text-sm text-foreground">{type.toUpperCase()}</span>
       </div>
-      {isSelected && <CheckCircle2 className="w-5 h-5 text-green-500" />}
+      {isSelected && <CheckCircle2 className="w-5 h-5 text-[#6366F1]" />}
     </div>
   );
 });

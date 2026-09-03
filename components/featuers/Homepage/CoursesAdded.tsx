@@ -40,7 +40,7 @@ const CourseCard: React.FC<CourseCardProps> = ({
       onMouseLeave={() => setIsHovered(null)}
     >
       {/* Main Card */}
-      <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer">
+      <div className="bg-card rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer">
         <div className="relative">
           <Image
             src={course.image}
@@ -51,24 +51,24 @@ const CourseCard: React.FC<CourseCardProps> = ({
             className="w-full h-48 object-cover"
           />
           <div className="absolute top-3 left-3">
-            <span className="bg-purple-100 text-purple-700 text-xs font-semibold px-3 py-1 rounded">
+            <span className="bg-[#EEF2FF] text-[#6366F1] text-xs font-semibold px-3 py-1 rounded">
               {course.category}
             </span>
           </div>
           <div className="absolute top-3 right-3">
-            <span className="bg-orange-500 text-white text-sm font-bold px-2 py-1 rounded">
+            <span className="bg-[#6366F1] text-white text-sm font-bold px-2 py-1 rounded">
               {course.price}
             </span>
           </div>
         </div>
 
         <div className="p-4">
-          <h3 className="font-semibold text-gray-900 mb-3 line-clamp-2 min-h-12">
+          <h3 className="font-semibold text-foreground mb-3 line-clamp-2 min-h-12">
             {course.title}
           </h3>
-          <div className="flex items-center gap-4 text-sm text-gray-600 mb-3">
+          <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
             <div className="flex items-center gap-1">
-              <span className="text-orange-500">★</span>
+              <span className="text-[#6366F1]">★</span>
               <span className="font-medium">{course.rating}</span>
             </div>
             <div className="flex items-center gap-1">
@@ -81,7 +81,7 @@ const CourseCard: React.FC<CourseCardProps> = ({
 
       {/* Hover Card */}
       {isHovered === index && (
-        <div className="absolute left-0 top-0 md:w-80 w-60 bg-white rounded-lg shadow-2xl z-50 border border-gray-200 animate-fadeIn">
+        <div className="absolute left-0 top-0 md:w-80 w-60 bg-card rounded-lg shadow-2xl z-50 border border-border animate-fadeIn">
           <div className="relative">
             <Image
               src={course.image}
@@ -95,16 +95,16 @@ const CourseCard: React.FC<CourseCardProps> = ({
 
           <div className="p-5">
             <div className="mb-3">
-              <span className="bg-purple-100 text-purple-700 text-xs font-semibold px-2 py-1 rounded">
+              <span className="bg-[#EEF2FF] text-[#6366F1] text-xs font-semibold px-2 py-1 rounded">
                 {course.category}
               </span>
             </div>
-            <h3 className="font-bold text-gray-900 mb-3 text-lg">{course.title}</h3>
+            <h3 className="font-bold text-foreground mb-3 text-lg">{course.title}</h3>
 
             {/* Stats */}
-            <div className="flex items-center gap-4 text-sm text-gray-600 mb-4 pb-4 border-b">
+            <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4 pb-4 border-b">
               <div className="flex items-center gap-1">
-                <span className="text-orange-500 font-bold">{course.rating}</span>
+                <span className="text-[#6366F1] font-bold">{course.rating}</span>
               </div>
               <div className="flex items-center gap-1">
                 <Users className="w-4 h-4" />
@@ -121,9 +121,9 @@ const CourseCard: React.FC<CourseCardProps> = ({
 
             {/* Price */}
             <div className="flex items-center gap-2 mb-4">
-              <span className="text-2xl font-bold text-gray-900">${price}</span>
-              <span className="text-gray-400 line-through">${originalPrice}</span>
-              <span className="bg-orange-100 text-orange-600 text-xs font-bold px-2 py-1 rounded">
+              <span className="text-2xl font-bold text-foreground">${price}</span>
+              <span className="text-muted-foreground line-through">${originalPrice}</span>
+              <span className="bg-[#EEF2FF] text-[#6366F1] text-xs font-bold px-2 py-1 rounded">
                 {discount}% OFF
               </span>
             </div>
@@ -133,7 +133,7 @@ const CourseCard: React.FC<CourseCardProps> = ({
               onClick={() =>
                 setFavorites({ ...favorites, [course.id]: !favorites[course.id] })
               }
-              className="absolute top-3 right-3 bg-white rounded-full p-2 shadow-md hover:shadow-lg transition-all"
+              className="absolute top-3 right-3 bg-card rounded-full p-2 shadow-md hover:shadow-lg transition-all"
             >
               <Heart
                 className={`w-5 h-5 ${
@@ -156,7 +156,7 @@ const RecentlyAddedCourses: React.FC<{ className?: string }> = ({ className }) =
   const [favorites, setFavorites] = useState<{ [key: string]: boolean }>({});
 
   return (
-    <section className={`py-12 bg-gray-50 rounded-lg ${className || ''}`}>
+    <section className={`py-12 rounded-lg ${className || ''}`}>
       <div className="max-w-7xl mx-auto px-4">
         <Heading heading={t("Recently Added Courses")} />
 
